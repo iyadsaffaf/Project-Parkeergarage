@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Simulator s = new Simulator();
-		int x=8;
+		int x=888;
 		s.run();
 
 	}
