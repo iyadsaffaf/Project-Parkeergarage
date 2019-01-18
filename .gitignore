@@ -1,4 +1,5 @@
-
+bin/
+.DS_STORE
 .idea/encodings.xml
 .idea/misc.xml
 .idea/modules.xml
