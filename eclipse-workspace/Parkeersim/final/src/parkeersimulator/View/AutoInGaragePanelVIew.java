@@ -108,6 +108,7 @@ public class AutoInGaragePanelVIew extends View implements ViewInterface{
 	 public void paintComponent(Graphics g) {
 	        g.setColor(Color.WHITE);
 	        g.fillRect(0, 0, 200, 200);
+	        
 
 	        int amountOfAd_Hoc = adhoc;
 	        int amountOfPassCars = pass;
