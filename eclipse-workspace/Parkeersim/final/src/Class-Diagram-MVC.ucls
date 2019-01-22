@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="parkeersimulator.Controller.SlideController" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Controller/SlideController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="600" x="138" y="619"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="parkeersimulator.View.ReserverenPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/ReserverenPanelView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="83" width="170" x="75" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="parkeersimulator.Model.CarViewModel" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/CarViewModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="353" width="202" x="1561" y="2179"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="parkeersimulator.View.ParkPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/ParkPanelView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="227" width="245" x="1209" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="parkeersimulator.View.QueuesPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/QueuesPanelView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="145" x="374" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="parkeersimulator.Model.Car" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/Car.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="425" width="192" x="1676" y="2572"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="parkeersimulator.Model.SimulatorModel" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/SimulatorModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1091" width="242" x="1808" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="parkeersimulator.View.AutoInGaragePanelVIew" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/AutoInGaragePanelVIew.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="209" width="196" x="559" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="parkeersimulator.MVC.Controller" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/MVC/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="145" x="883" y="370"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="parkeersimulator.View.WinstPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/WinstPanelView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="131" x="307" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="parkeersimulator.View.ResetPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/ResetPanelView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="132" x="500" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="parkeersimulator.Main.Simulator" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Main/Simulator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="209" width="191" x="1068" y="370"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="parkeersimulator.Model.ParkingPassCar" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/ParkingPassCar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="132" x="1419" y="3037"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="parkeersimulator.Model.CarQueue" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/CarQueue.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="139" x="1808" y="2179"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="parkeersimulator.Model.AdHocCar" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/AdHocCar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="114" x="1591" y="3037"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="parkeersimulator.MVC.View" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/MVC/View.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="145" x="443" y="229"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="parkeersimulator.Controller.PlayController" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Controller/PlayController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="305" x="883" y="619"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="parkeersimulator.View.SlidePanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/SlidePanelView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1073" width="214" x="98" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="parkeersimulator.Model.Location" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/Location.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="245" width="151" x="1745" y="3037"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="parkeersimulator.Model.Reserveren" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Model/Reserveren.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="114" x="1936" y="3037"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="21" language="java" name="interfaces.ViewInterface" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/interfaces/ViewInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="115" x="559" y="2179"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="22" language="java" name="parkeersimulator.View.ControllerPanelView" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/View/ControllerPanelView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="227" width="160" x="795" y="1048"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="parkeersimulator.Main.Main" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Main/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="124" x="695" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="parkeersimulator.MVC.Model" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/MVC/Model.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="109" x="883" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="parkeersimulator.Logic.SimulatorLogic" project="Parkeergarage-Project" 
+    file="/Parkeergarage-Project/src/parkeersimulator/Logic/SimulatorLogic.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="389" width="498" x="1249" y="619"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="26">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="27" name="queue"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="30" name="views"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <bendpoint x="810" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="33" name="autoInGaragaPanel"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="35">    
+    <bendpoint x="86" y="619"/>    
+    <bendpoint x="86" y="370"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="37">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="38" name="slideController"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="41" name="d"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <bendpoint x="1218" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="44" name="parkViewPanel"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="47">    
+    <bendpoint x="1798" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="48" name="simulatorModel"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="51" name="exitCarQueue"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="54">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="55" name="autoInGaragePanelVIew"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="57">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="58">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="59">    
+    <bendpoint x="1484" y="1048"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="60" name="c"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <bendpoint x="831" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="63" name="controllerPanel"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="66" name="playControlller"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="69" name="c"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="71">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="72">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="73" name="slidePanelView"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="76" name="autoInGaragePanelVIew"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="79" name="cars"/>      
+      <multiplicity id="80" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="82" name="controllerPanelView"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="84">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="85">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="86">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="87" name="queuesPanelView"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="90" name="p"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="92">    
+    <bendpoint x="44" y="619"/>    
+    <bendpoint x="44" y="370"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <generalization id="93">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="94">    
+    <bendpoint x="852" y="619"/>    
+    <bendpoint x="852" y="370"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="95">    
+    <bendpoint x="892" y="229"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="96" name="model"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <bendpoint x="1777" y="619"/>    
+    <bendpoint x="1777" y="1048"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="99" name="carViewModel"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="101">    
+    <bendpoint x="768" y="619"/>    
+    <bendpoint x="768" y="370"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="102">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="103" name="controller"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="105">    
+    <bendpoint x="65" y="619"/>    
+    <bendpoint x="65" y="370"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="106">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="107" name="entranceCarQueue"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <bendpoint x="107" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="110" name="slidePanel"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="112">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="113">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="114" name="location"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="117" name="paymentCarQueue"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="119">    
+    <bendpoint x="1819" y="619"/>    
+    <bendpoint x="1819" y="370"/>    
+    <bendpoint x="1819" y="229"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="120">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="121" name="entrancePassQueue"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="124" name="model"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <bendpoint x="789" y="619"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="127" name="queuPanel"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="130" name="simulatorLogic"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="133" name="model"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
