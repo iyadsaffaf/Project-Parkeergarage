@@ -14,6 +14,8 @@ public abstract class Car {
     private boolean isPaying;
     private boolean hasToPay;
     private boolean badAtParking = false;
+	double payPrice = 0.05;
+	double profitCar;
 
     /**
      * Constructor voor objecten van klasse Car.
@@ -103,4 +105,12 @@ public abstract class Car {
      * @return de Color van deze Car.
      */
     public abstract Color getColor();
+    
+    public double profitCar() {
+
+		if(this.getIsPaying()) {
+			profitCar = this.getStayMinutes() * payPrice;
+		}
+		return profitCar;
+}
 }

@@ -1,5 +1,6 @@
 package parkeersimulator.Model;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import parkeersimulator.MVC.Model;
@@ -13,6 +14,7 @@ public class SimulatorModel extends Model {
 
 	public static final String AD_HOC = "1";
 	public static final String PASS = "2";
+	public static final String RESV = "5";
 	
 	
 	private CarQueue entranceCarQueue;
@@ -30,15 +32,21 @@ public class SimulatorModel extends Model {
 
     private int tickPause = 100;
 
-    int weekDayArrivals= 100; // average number of arriving cars per hour
-    int weekendArrivals = 200; // average number of arriving cars per hour
-    int weekDayPassArrivals= 50; // average number of arriving cars per hour
-    int weekendPassArrivals = 5; // average number of arriving cars per hour
+    private int weekDayArrivals= 100; // average number of arriving cars per hour
+    private int weekendArrivals = 200; // average number of arriving cars per hour
+    private int weekDayPassArrivals= 50; // average number of arriving cars per hour
+    private int weekendPassArrivals = 5; // average number of arriving cars per hour
+    private int weekDayResvArrivals = 30;
+    private int weekendResvArrivals = 10;
 
-    int enterSpeed = 3; // number of cars that can enter per minute
-    int paymentSpeed = 7; // number of cars that can pay per minute
-    int exitSpeed = 5; // number of cars that can leave per minute
+    private int enterSpeed = 3; // number of cars that can enter per minute
+    private int paymentSpeed = 7; // number of cars that can pay per minute
+    private int exitSpeed = 5; // number of cars that can leave per minute
     private boolean isrunning;
+    
+    private double totalProfit;
+    private ArrayList<Double> profitPerHour = new ArrayList<>();
+    
   
 	public SimulatorModel() {
 		entranceCarQueue = new CarQueue();
@@ -49,22 +57,22 @@ public class SimulatorModel extends Model {
        // simulatorView = new SimulatorView(3, 6, 30);
 	}
 	
-	public void advanceTime(){
-        // Advance the time by one minute.
-        minute++;
-        while (minute > 59) {
-            minute -= 60;
-            hour++;
-        }
-        while (hour > 23) {
-            hour -= 24;
-            day++;
-        }
-        while (day > 6) {
-            day -= 7;
-        }
-
-    }
+//	public void advanceTime(){
+//        // Advance the time by one minute.
+//        minute++;
+//        while (minute > 59) {
+//            minute -= 60;
+//            hour++;
+//        }
+//        while (hour > 23) {
+//            hour -= 24;
+//            day++;
+//        }
+//        while (day > 6) {
+//            day -= 7;
+//        }
+//
+//    }
 	
 	public int getNumberOfCars(int weekDay, int weekend){
         Random random = new Random();
@@ -175,7 +183,23 @@ public class SimulatorModel extends Model {
 		public void setWeekendPassArrivals(int weekendPassArrivals) {
 			this.weekendPassArrivals = weekendPassArrivals;
 		}
+		
+		public int getWeekDayResvArrivals() {
+			return weekDayResvArrivals;
+		}
+		
+		public void setWeekDayResvArrivals(int weekDayResvArrivals) {
+			this.weekDayResvArrivals = weekDayResvArrivals;
+		}
 
+		public int getWeekendResvArrivals() {
+			return weekendResvArrivals;
+		}
+		
+		public void setWeekendResvArrivals(int weekDayResvArrivals) {
+			this.weekendResvArrivals = weekDayResvArrivals;
+		}
+		
 		public int getEnterSpeed() {
 			return enterSpeed;
 		}
@@ -207,6 +231,10 @@ public class SimulatorModel extends Model {
 		public static String getPass() {
 			return PASS;
 		}
+		
+		public static String getResv() {
+			return RESV;
+		}
 
 		public boolean isIsrunning() {
 			return isrunning;
@@ -230,6 +258,22 @@ public class SimulatorModel extends Model {
 
 		public void setPassCarnumber(int passCarnumber) {
 			this.passCarnumber = passCarnumber;
+		}
+
+		public double getTotalProfit() {
+			return totalProfit;
+		}
+
+		public void setTotalProfit(double totalProfit) {
+			this.totalProfit = totalProfit;
+		}
+
+		public ArrayList<Double> getProfitPerHour() {
+			return profitPerHour;
+		}
+
+		public void setProfitPerHour(ArrayList<Double> profitPerHour) {
+			this.profitPerHour = profitPerHour;
 		}
 
 }

@@ -12,14 +12,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
-
 /**
  * @author Iyad Saffaf
  *
@@ -34,6 +26,7 @@ public class AutoInGaragePanelVIew extends View implements ViewInterface{
 	 */
 	private int adhoc;
 	private int pass;
+	private int resv; // nieuw
 	
 
 	public AutoInGaragePanelVIew() {
@@ -99,9 +92,10 @@ public class AutoInGaragePanelVIew extends View implements ViewInterface{
 		
 	}
 	
-	public  void update(int adhoc,int pass) {
+	public  void update(int adhoc,int pass,int resv) {
 		this.adhoc=adhoc;
 		this.pass=pass;
+		this.resv=resv;//nieuw
 		this.repaint();
 	}
 	  
@@ -112,7 +106,7 @@ public class AutoInGaragePanelVIew extends View implements ViewInterface{
 
 	        int amountOfAd_Hoc = adhoc;
 	        int amountOfPassCars = pass;
-	        int amountOfReservedCars = 4;
+	        int amountOfReservedCars = resv; //4;
 
 	        System.out.println("Check amountOfAd_Hoc = " + amountOfAd_Hoc);
 	        System.out.println("Check amountOfPassCars = " + amountOfPassCars);
@@ -134,13 +128,11 @@ public class AutoInGaragePanelVIew extends View implements ViewInterface{
 	        //PassCars slice
 	        g.setColor(Color.BLUE);
 	        g.fillArc(10, 10, 180, 180, angleAd_Hoc, anglePassCars);
+	        
 	        //ReservedCars slice
 	        g.setColor(Color.GREEN);
 	        g.fillArc(10, 10, 180, 180, anglePassCars + angleAd_Hoc, angleReservedCars);
 	        g.setColor(Color.LIGHT_GRAY);
 	        g.fillArc(10, 10, 180, 180, anglePassCars + angleAd_Hoc + angleReservedCars, 360-(angleAd_Hoc + anglePassCars + angleReservedCars));
 	    }
-	
-	
-
 }

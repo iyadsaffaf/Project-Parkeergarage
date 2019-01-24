@@ -9,16 +9,18 @@ import parkeersimulator.Model.CarQueue;
 import parkeersimulator.Model.CarViewModel;
 import parkeersimulator.Model.Location;
 import parkeersimulator.Model.ParkingPassCar;
+import parkeersimulator.Model.Reserveren;
 import parkeersimulator.Model.SimulatorModel;
 import parkeersimulator.View.AutoInGaragePanelVIew;
 import parkeersimulator.View.ParkPanelView;
 
 public class SimulatorLogic implements Runnable {
-	private SimulatorModel d ;
+	private SimulatorModel d;
 	private CarViewModel c;
 	private ParkPanelView p;
 	private static final String AD_HOC = SimulatorModel.AD_HOC;
 	private static final String PASS =SimulatorModel.PASS;
+	private static final String RESV = SimulatorModel.RESV;
 	private Thread t = new Thread(this);
 	private AutoInGaragePanelVIew autoInGaragePanelVIew;
    
@@ -57,17 +59,18 @@ public class SimulatorLogic implements Runnable {
         // Advance the time by one minute.
         d.setMinute(d.getMinute()+1);
         while (d.getMinute() > 59) {
-
+    			d.getProfitPerHour().add(d.getTotalProfit());
+    			System.out.println(d.getProfitPerHour());
+    			d.setTotalProfit(0);
             d.setMinute(d.getMinute()-60);
             d.setHour(d.getHour()+1);
         }
         while (d.getHour() > 23) {
-            
             d.setHour(d.getHour()-24);
             d.setDay(d.getDay()+1);
         }
         while (d.getDay() > 6) {
-        	d.setDay(d.getDay()-7);
+        		d.setDay(d.getDay()-7);
         }
 
     }
@@ -92,10 +95,15 @@ public class SimulatorLogic implements Runnable {
     }
     
     private void carsArriving(){
-    	int numberOfCars=getNumberOfCars(d.getWeekDayArrivals(), d.getWeekendArrivals());
+    		int numberOfCars=getNumberOfCars(d.getWeekDayArrivals(), d.getWeekendArrivals());
         addArrivingCars(numberOfCars, SimulatorModel.getAdHoc());    	
-    	numberOfCars=getNumberOfCars(d.getWeekDayPassArrivals(), d.getWeekendPassArrivals());
-        addArrivingCars(numberOfCars, SimulatorModel.getPass());    	
+        
+    		numberOfCars=getNumberOfCars(d.getWeekDayPassArrivals(), d.getWeekendPassArrivals());
+        addArrivingCars(numberOfCars, SimulatorModel.getPass());   
+        
+        numberOfCars=getNumberOfCars(d.getWeekDayResvArrivals(), d.getWeekendResvArrivals());
+        addArrivingCars(numberOfCars, SimulatorModel.getResv()); 
+        
     }
 
     private void carsEntering(CarQueue queue){
@@ -139,11 +147,14 @@ public class SimulatorLogic implements Runnable {
     
     private void carsLeaving(){
         // Let cars leave.
-    	int i=0;
-    	while (d.getExitCarQueue().carsInQueue()>0 && i < d.getExitSpeed()){
-    		d.getExitCarQueue().removeCar();
+    		int i=0;
+    		while (d.getExitCarQueue().carsInQueue()>0 && i < d.getExitSpeed()){
+    			Car car = d.getExitCarQueue().getCar();
+    			d.setTotalProfit(d.getTotalProfit() + car.profitCar());
+    			//System.out.println((int)d.getTotalProfit());
+    			d.getExitCarQueue().removeCar();
             i++;
-    	}	
+    		}
     }
     
     private int getNumberOfCars(int weekDay, int weekend){
@@ -175,15 +186,21 @@ public class SimulatorLogic implements Runnable {
             	d.setPassCarnumber(d.getPassCarnumber()+1);
             }
             break;	            
-    	}
+    	case RESV:
+    			for (int i = 0; i < numberOfCars; i++) {
+            	d.getEntrancePassQueue().addCar(new Reserveren());
+            	d.setPassCarnumber(d.getPassCarnumber()+1);
+            }
+            break;
+    			
+    		}
     }
     
     private void carLeavesSpot(Car car){
-    	c.removeCarAt(car.getLocation());
+    		c.removeCarAt(car.getLocation());
         d.getExitCarQueue().addCar(car);
     }
     
-  
-	
+    
 	
 }
