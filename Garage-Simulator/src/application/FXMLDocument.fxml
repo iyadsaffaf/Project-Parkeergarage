@@ -13,27 +13,72 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="771.0" prefWidth="1400.0" styleClass="root" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1159.0" styleClass="root" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
     <children>
       
-      <VBox layoutY="-4.0" prefHeight="779.0" prefWidth="266.0" style="-fx-background-color: #3F2B63;">
+      <VBox layoutY="-4.0" prefHeight="779.0" prefWidth="232.0" style="-fx-background-color: #3F2B63;">
          <children>
-            <Pane blendMode="SCREEN" prefHeight="200.0" prefWidth="200.0">
+            <Pane blendMode="SCREEN" prefHeight="228.0" prefWidth="291.0">
                <children>
-                  <Text fill="#777777" layoutX="26.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garage Simulator">
+                  <Text fill="#777777" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garage Simulator">
                      <font>
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Text>
-                  <Text fill="#929292" layoutX="206.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V 1.1" />
-                  <ImageView fitHeight="83.0" fitWidth="84.0" layoutX="80.0" layoutY="113.0" opacity="0.37" pickOnBounds="true" preserveRatio="true">
+                  <Text fill="#929292" layoutX="197.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V 1.1" />
+                  <Pane layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="232.0" style="-fx-background-color: #99AAAA;">
+                     <children>
+                        <Label fx:id="labelDays" layoutX="23.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Text fill="#254646" layoutX="28.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#254646" layoutX="174.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#254646" layoutX="125.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuts">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#254646" layoutX="77.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="labelSeconds" layoutX="174.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelMinuts" layoutX="125.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelHours" layoutX="75.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="buttonPlay" fitHeight="31.0" fitWidth="28.0" layoutX="22.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@park_1.jpg" />
+                        <Image url="@../images/play.png" />
                      </image>
                   </ImageView>
+                  <Slider fx:id="sildeSpeed" layoutX="75.0" layoutY="187.0" prefHeight="15.0" prefWidth="118.0" />
                </children>
             </Pane>
-            <Button fx:id="buttonSimulator" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="274.0" stylesheets="@../css/StyleSheet.css" text="Simulator" textFill="WHITE">
+            <Button fx:id="buttonSimulator" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="21.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Simulator" textFill="WHITE">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -44,7 +89,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="274.0" stylesheets="@../css/StyleSheet.css" text="Aantal Autos" textFill="WHITE">
+            <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="10.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Aantal Autos" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -52,7 +97,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonQueu" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="274.0" stylesheets="@../css/StyleSheet.css" text="Het queu" textFill="WHITE">
+            <Button fx:id="buttonQueu" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Het queu" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -60,7 +105,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonWinst" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="274.0" stylesheets="@../css/StyleSheet.css" text="Het winst" textFill="WHITE">
+            <Button fx:id="buttonWinst" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Het winst" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -68,7 +113,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonReserveren" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reserveren" textFill="WHITE">
+            <Button fx:id="buttonReserveren" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reserveren" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -76,7 +121,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonReset" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="83.0" prefWidth="274.0" stylesheets="@../css/StyleSheet.css" text="Reset" textFill="WHITE">
+            <Button fx:id="buttonReset" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reset" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -86,81 +131,22 @@
             </Button>
          </children>
       </VBox>
-      <StackPane layoutX="266.0" layoutY="46.0" prefHeight="626.0" prefWidth="1139.0">
+      <StackPane layoutX="289.0" layoutY="46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="821.0">
          <children>
-            <Pane fx:id="paneSimulator" prefHeight="635.0" prefWidth="1139.0">
+            <Pane fx:id="paneSimulator" prefHeight="540.0" prefWidth="834.0">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin></Pane>
-            <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="1134.0" visible="false" />
-            <Pane fx:id="paneQueu" prefHeight="648.0" prefWidth="1134.0" visible="false" />
-            <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="1134.0" visible="false" />
-            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="1134.0" visible="false" />
-            <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="1134.0" visible="false" />
+            <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneQueu" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0" visible="false" />
          </children>
       </StackPane>
-      <Pane layoutX="337.0" layoutY="685.0" prefHeight="83.0" prefWidth="1048.0" styleClass="controllerPane" stylesheets="@../css/StyleSheet.css">
-         <children>
-            <Slider fx:id="sildeSpeed" layoutX="210.0" layoutY="35.0" />
-            <ImageView fx:id="buttonPlay" fitHeight="70.0" fitWidth="83.0" layoutX="68.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@play.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="561.0" layoutY="1.0" prefHeight="83.0" prefWidth="438.0" style="-fx-background-color: #99AAAA;">
-               <children>
-                  <ImageView fitHeight="83.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@clock.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="labelDays" layoutX="117.0" layoutY="24.0" prefHeight="48.0" prefWidth="59.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <Text fill="#254646" layoutX="132.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#254646" layoutX="346.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#254646" layoutX="273.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuts">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#254646" layoutX="201.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Label fx:id="labelSeconds" layoutX="342.0" layoutY="24.0" prefHeight="48.0" prefWidth="59.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelMinuts" layoutX="265.0" layoutY="24.0" prefHeight="48.0" prefWidth="59.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelHours" layoutX="190.0" layoutY="24.0" prefHeight="48.0" prefWidth="59.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="38.0" layoutX="1355.0" layoutY="6.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="38.0" layoutX="955.0" layoutY="6.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../close.png" />
+            <Image url="@../images/close.png" />
          </image>
       </ImageView>
      
