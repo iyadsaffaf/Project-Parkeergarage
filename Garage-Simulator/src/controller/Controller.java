@@ -17,9 +17,6 @@ import view.AantalAutosView;
 
 public class Controller implements Initializable  {
     
-	@FXML
-    private Button buttonSimulator;
-
     @FXML
     private Button buttonAutos;
 
@@ -88,7 +85,6 @@ public class Controller implements Initializable  {
 		Autos = new AantalAutosView();
 		paneAutos.getChildren().add(Autos);
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			paneSimulator.setVisible(false);
 			paneAutos.setVisible(true);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);

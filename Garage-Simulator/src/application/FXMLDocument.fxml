@@ -78,17 +78,6 @@
                   <Slider fx:id="sildeSpeed" layoutX="75.0" layoutY="187.0" prefHeight="15.0" prefWidth="118.0" />
                </children>
             </Pane>
-            <Button fx:id="buttonSimulator" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="21.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Simulator" textFill="WHITE">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bernard MT Condensed" size="29.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-            </Button>
             <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="10.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Aantal Autos" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
@@ -131,24 +120,25 @@
             </Button>
          </children>
       </VBox>
-      <StackPane layoutX="289.0" layoutY="46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="821.0">
+      <StackPane layoutX="289.0" layoutY="405.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="821.0">
          <children>
-            <Pane fx:id="paneSimulator" prefHeight="540.0" prefWidth="834.0">
+            <Pane fx:id="paneSimulator" prefHeight="331.0" prefWidth="839.0">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin></Pane>
             <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
-            <Pane fx:id="paneQueu" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneQueu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="821.0" visible="false" />
             <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0" visible="false" />
          </children>
       </StackPane>
-      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="38.0" layoutX="955.0" layoutY="6.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="38.0" layoutX="1091.0" layoutY="33.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
+      <Pane fx:id="paneSimulator" layoutX="289.0" layoutY="52.0" prefHeight="342.0" prefWidth="821.0" />
      
     </children>
 </AnchorPane>
