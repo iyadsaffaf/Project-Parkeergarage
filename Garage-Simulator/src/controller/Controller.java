@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import view.AantalAutosView;
+import view.Reserveren;
 import view.Winst;
 
 public class Controller implements Initializable  {
@@ -74,6 +75,7 @@ public class Controller implements Initializable  {
     
     private AantalAutosView Autos;
     private Winst winst;
+    private Reserveren reseveren;
     @FXML
     void handleButtonExit(MouseEvent event) {
     		Platform.exit();
@@ -91,6 +93,9 @@ public class Controller implements Initializable  {
 		winst = new Winst();
 		paneWinst.getChildren().add(winst);
 		
+		
+		reseveren = new Reserveren();
+		paneReserveren.getChildren().add(reseveren);
 		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
