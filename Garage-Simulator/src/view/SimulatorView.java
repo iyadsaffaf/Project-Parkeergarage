@@ -25,6 +25,7 @@ import model.Car;
 import model.CarQueue;
 import model.Location;
 import model.ParkingPassCar;
+import model.ReserverenCar;
 import model.SimulatorModel;
 
 public class SimulatorView extends Canvas{
@@ -32,6 +33,7 @@ public class SimulatorView extends Canvas{
 	private SimulatorModel model;
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
+	private static final String RES = "3";
 	/**
 	 * 
 	 */
@@ -168,6 +170,8 @@ public class SimulatorView extends Canvas{
 		addArrivingCars(numberOfCars, AD_HOC);
 		numberOfCars = getNumberOfCars(model.getWeekDayPassArrivals(), model.getWeekendPassArrivals());
 		addArrivingCars(numberOfCars, PASS);
+		numberOfCars=getNumberOfCars(model.getWeekDayReserverenArrivals(), model.getWeekendReserverenArrivals());
+		addArrivingCars(numberOfCars, RES);
 	}
 
 	private void carsEntering(CarQueue queue) {
@@ -240,6 +244,13 @@ public class SimulatorView extends Canvas{
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ParkingPassCar());
 				model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar()+1);
+			}
+			break;
+			
+		case RES:
+			for (int i = 0; i < numberOfCars; i++) {
+				model.getEntrancePassQueue().addCar(new ReserverenCar());
+			 //model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar()+1);
 			}
 			break;
 		}
