@@ -112,6 +112,36 @@ public class Controller implements Initializable  {
 			
 		});
 		
+		buttonQueu.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(true);
+			paneWinst.setVisible(false);
+			paneReserveren.setVisible(false);
+			paneReset.setVisible(false);
+			
+			
+		});
+		
+		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(false);
+			paneWinst.setVisible(false);
+			paneReserveren.setVisible(true);
+			paneReset.setVisible(false);
+			
+			
+		});
+		
+		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(false);
+			paneWinst.setVisible(false);
+			paneReserveren.setVisible(false);
+			paneReset.setVisible(true);
+			
+			
+		});
+		
 	}
 	  @FXML
 	private void handleButtonAction(ActionEvent event) {
