@@ -11,7 +11,7 @@ public class Reserveren extends  AreaChart <Number,Number>  {
 		super(xAxis,yAxis);
 	
         
-        setTitle("Temperature Monitoring (in Degrees C)");
+        setTitle("Reseveren");
  
         Series seriesApril= new XYChart.Series();
         seriesApril.setName("April");
