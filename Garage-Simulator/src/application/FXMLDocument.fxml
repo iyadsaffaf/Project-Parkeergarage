@@ -122,10 +122,6 @@
       </VBox>
       <StackPane layoutX="289.0" layoutY="405.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="821.0">
          <children>
-            <Pane fx:id="paneSimulator" prefHeight="331.0" prefWidth="839.0">
-               <StackPane.margin>
-                  <Insets />
-               </StackPane.margin></Pane>
             <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneQueu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="821.0" visible="false" />
             <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
