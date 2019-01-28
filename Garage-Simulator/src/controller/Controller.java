@@ -142,6 +142,7 @@ public class Controller implements Initializable  {
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
+			
 			paneReset.setVisible(true);
 			
 			
