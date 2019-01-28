@@ -5,7 +5,7 @@ import java.awt.Image;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class SimulatorModelView {
+public class SimulatorModel {
 	private int numberOfFloors ;
 	private int numberOfRows ;
 	private int numberOfPlaces ;
@@ -34,7 +34,7 @@ public class SimulatorModelView {
     private int numberOfParkingPassCar;
     
 	
-	public SimulatorModelView() {
+	public SimulatorModel() {
 		super();
 		this.numberOfFloors = 3;
 		this.numberOfRows = 6;
