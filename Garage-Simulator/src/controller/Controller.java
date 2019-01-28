@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import view.AantalAutosView;
+import view.Winst;
 
 public class Controller implements Initializable  {
     
@@ -72,7 +73,7 @@ public class Controller implements Initializable  {
     private ImageView bttonExit;
     
     private AantalAutosView Autos;
-
+    private Winst winst;
     @FXML
     void handleButtonExit(MouseEvent event) {
     		Platform.exit();
@@ -82,12 +83,29 @@ public class Controller implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		
+		
 		Autos = new AantalAutosView();
 		paneAutos.getChildren().add(Autos);
+		
+		winst = new Winst();
+		paneWinst.getChildren().add(winst);
+		
+		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
+			paneReserveren.setVisible(false);
+			paneReset.setVisible(false);
+			
+			
+		});
+		
+		buttonWinst.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(false);
+			paneWinst.setVisible(true);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
 			
