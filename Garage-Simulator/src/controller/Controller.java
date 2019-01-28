@@ -91,7 +91,7 @@ public class Controller implements Initializable  {
 		// TODO Auto-generated method stub
 		
 		model = new SimulatorModel();
-		Autos = new AantalAutosView();
+		Autos = new AantalAutosView(model);
 		paneAutos.getChildren().add(Autos);
 		
 		winst = new Winst();

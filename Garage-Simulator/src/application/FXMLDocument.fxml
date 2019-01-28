@@ -120,7 +120,7 @@
             </Button>
          </children>
       </VBox>
-      <StackPane layoutX="289.0" layoutY="405.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="821.0">
+      <StackPane layoutX="268.0" layoutY="429.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="859.0">
          <children>
             <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneQueu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="821.0" visible="false" />
@@ -129,12 +129,12 @@
             <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0" visible="false" />
          </children>
       </StackPane>
-      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="38.0" layoutX="1091.0" layoutY="33.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
+      <Pane fx:id="paneSimulator" layoutX="268.0" layoutY="38.0" prefHeight="356.0" prefWidth="841.0" />
+      <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="41.0" layoutX="1107.0" layoutY="14.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
-      <Pane fx:id="paneSimulator" layoutX="289.0" layoutY="52.0" prefHeight="342.0" prefWidth="821.0" />
      
     </children>
 </AnchorPane>

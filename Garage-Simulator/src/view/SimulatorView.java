@@ -250,7 +250,7 @@ public class SimulatorView extends Canvas{
 		case RES:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ReserverenCar());
-			 //model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar()+1);
+			 model.setNumberOfReserverenCar(model.getNumberOfReserverenCar()+1);
 			}
 			break;
 		}
