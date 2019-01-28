@@ -1,8 +1,8 @@
 package model;
 
-public class ReserverenModel {
+public class ReserverenCar {
 
-	public ReserverenModel() {
+	public ReserverenCar() {
 		// TODO Auto-generated constructor stub
 	}
 
