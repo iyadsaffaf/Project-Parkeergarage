@@ -37,7 +37,6 @@ public class AantalAutosView extends PieChart {
 					public void handle(long now) {
 						if (now - lastUpdate >= 500_000_000) {
 		                    lastUpdate = now ;
-		                  System.out.println("sexond");
 						
 						
 						

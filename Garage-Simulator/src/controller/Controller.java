@@ -13,8 +13,10 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import model.SimulatorModel;
 import view.AantalAutosView;
 import view.Reserveren;
+import view.SimulatorView;
 import view.Winst;
 
 public class Controller implements Initializable  {
@@ -76,6 +78,8 @@ public class Controller implements Initializable  {
     private AantalAutosView Autos;
     private Winst winst;
     private Reserveren reseveren;
+    private SimulatorModel model;
+    private SimulatorView simulatorView;
     @FXML
     void handleButtonExit(MouseEvent event) {
     		Platform.exit();
@@ -86,7 +90,7 @@ public class Controller implements Initializable  {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
-		
+		model = new SimulatorModel();
 		Autos = new AantalAutosView();
 		paneAutos.getChildren().add(Autos);
 		
@@ -96,6 +100,9 @@ public class Controller implements Initializable  {
 		
 		reseveren = new Reserveren();
 		paneReserveren.getChildren().add(reseveren);
+		
+		simulatorView=new SimulatorView(model);
+		paneSimulator.getChildren().add(simulatorView);
 		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
