@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -144,6 +145,7 @@ public class Controller implements Initializable  {
     private SimulatorModel model;
     private SimulatorView simulatorView;
     private Queu queu;
+    private boolean pressed;
     
     @FXML
     void handleButtonExit(MouseEvent event) {
@@ -203,6 +205,28 @@ public class Controller implements Initializable  {
 			
 			
 		});
+		//play button
+		pressed=true;
+		buttonPlay.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			if(pressed) {
+			model.setIsrunning(true);
+			pressed=false;
+			
+//			Image image = new Image("@../images/close.png");
+//	         buttonPlay.setImage(image);
+			
+			}
+			else {
+				pressed=true;
+				model.setIsrunning(false);
+//		         Image image = new Image("@../images/close.png");
+//		         buttonPlay.setImage(image);
+
+				
+			}
+			
+			
+		});
 		
 		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(false);
@@ -232,6 +256,11 @@ public class Controller implements Initializable  {
 			exitSpeedField.setText(String.valueOf(model.getExitSpeed()));
 		});
 			
+		//play button
+		
+		
+		
+		
 		//resetView = new Reset();
 		resetSubmit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			int a1 = Integer.parseInt(weekdayArrivalField.getText());
@@ -337,6 +366,8 @@ public class Controller implements Initializable  {
 			});
 			
 			// payment Speed 
+			
+			
 			paymentSpeedField.textProperty().addListener(new ChangeListener<String>() {
 			    @Override
 			    public void changed(ObservableValue<? extends String> observable, String oldValue, 

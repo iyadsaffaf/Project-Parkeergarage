@@ -50,8 +50,10 @@ public class SimulatorView extends Canvas{
 			public void handle(long now) {
 				if (now - lastUpdate >= 5_000_000) {
 					lastUpdate = now;
+     if(model.isIsrunning()) {
+ 		tickBig();
 
-					tickBig();
+     }
 
 				}
 			}
