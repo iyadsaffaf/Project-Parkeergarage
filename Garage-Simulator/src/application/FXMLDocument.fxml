@@ -30,42 +30,32 @@
                   <Text fill="#929292" layoutX="197.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V 1.1" />
                   <Pane layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="232.0" style="-fx-background-color: #99AAAA;">
                      <children>
-                        <Label fx:id="labelDays" layoutX="23.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                        <Label fx:id="labelDays" layoutX="44.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Text fill="#254646" layoutX="28.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days">
+                        <Text fill="#254646" layoutX="45.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dagen">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <Text fill="#254646" layoutX="174.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds">
+                        <Text fill="#254646" layoutX="142.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuten">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <Text fill="#254646" layoutX="125.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuts">
+                        <Text fill="#254646" layoutX="101.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uren">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <Text fill="#254646" layoutX="77.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Text>
-                        <Label fx:id="labelSeconds" layoutX="174.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                        <Label fx:id="labelMinuts" layoutX="146.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMinuts" layoutX="125.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelHours" layoutX="75.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                        <Label fx:id="labelHours" layoutX="96.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -80,7 +70,7 @@
                   <Slider fx:id="sildeSpeed" layoutX="75.0" layoutY="187.0" prefHeight="15.0" prefWidth="118.0" />
                </children>
             </Pane>
-            <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="10.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Aantal Autos" textFill="WHITE">
+            <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="10.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Overzicht" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -88,7 +78,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonQueu" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Het queu" textFill="WHITE">
+            <Button fx:id="buttonQueu" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Wachtrij" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -96,7 +86,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonWinst" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Het winst" textFill="WHITE">
+            <Button fx:id="buttonWinst" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Omzet" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -104,7 +94,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonReserveren" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reserveren" textFill="WHITE">
+            <Button fx:id="buttonReserveren" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reservaties" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
@@ -112,7 +102,7 @@
                   <Insets left="20.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonReset" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Reset" textFill="WHITE">
+            <Button fx:id="buttonReset" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Instellingen" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="29.0" />
                </font>
