@@ -22,7 +22,7 @@ public class Queu extends BarChart<Number, String> {
 	private CarQueue queue;
 	private Car car;
 	private SimulatorModel model;
-	final static NumberAxis xAxis = new NumberAxis();
+	final static NumberAxis xAxis = new NumberAxis(0, 10, 1);
     final static CategoryAxis yAxis = new CategoryAxis();
     
     /*
@@ -36,37 +36,13 @@ public class Queu extends BarChart<Number, String> {
 		this.model = model;
 
 		// Maakt de algemene gegevens van BarChart aan		
-        setTitle("Aantal wachtenden auto's");
+        setTitle("Wachtrij");
         xAxis.setLabel("Wachtrij");  
         xAxis.setTickLabelRotation(90);
         yAxis.setLabel("Garage");   
+        xAxis.setForceZeroInRange(false);
         
-        // Auto's in de wachtrij
-     	CarQueue carQueue = model.getEntranceCarQueue();
-     	CarQueue passQueue = model.getEntrancePassQueue();
-        
-        // Het toevoegen van data aan de BarChart              
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("CarQueue");       
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "maandag"));
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "dinsdag"));
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "woensdag"));
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "donderdag"));
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "vrijdag")); 
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "zaterdag"));      
-        series1.getData().add(new XYChart.Data(carQueue.carsInQueue(), "zondag"));      
-        
-        XYChart.Series series2 = new XYChart.Series();
-        series2.setName("PassQueue");
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "maandag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "dinsdag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "woesndag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "donderdag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "vrijdag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "zaterdag"));
-        series2.getData().add(new XYChart.Data(passQueue.carsInQueue(), "zondag"));
-       
-        getData().addAll(series1, series2);
+        updateGrafiek();
     
         
     // AnimationTimer om de BarChart up-to-date te houden
@@ -82,6 +58,7 @@ public class Queu extends BarChart<Number, String> {
 			if (now - lastUpdate >= 500_000_000) {
                lastUpdate = now ;
 			          
+                      updateGrafiek();
             
 		}}
 	};
@@ -89,4 +66,29 @@ public class Queu extends BarChart<Number, String> {
 queueTimer.start();
     
 	}
+	
+	/*
+	 * Deze methode wordt gebruikt om de BarChart up te daten
+	 */
+	
+	private void updateGrafiek() {
+		getData().clear();
+		        
+		        // Auto's in de wachtrij
+		     	CarQueue carQueue = model.getEntranceCarQueue();
+		     	CarQueue passQueue = model.getEntrancePassQueue();
+		     	CarQueue exitQueue = model.getExitCarQueue();
+		     	CarQueue paymentQueue = model.getPaymentCarQueue();
+		        
+		        // Het toevoegen van data aan de BarChart              
+		        XYChart.Series series = new XYChart.Series();
+		        series.setName("Car Queues");       
+		        series.getData().add(new XYChart.Data(carQueue.carsInQueue(), "Entrance Car Queue"));
+		        series.getData().add(new XYChart.Data(passQueue.carsInQueue(), "Entrance Pass Queue"));
+		        series.getData().add(new XYChart.Data(exitQueue.carsInQueue(), "Exit Car Queue"));
+		        series.getData().add(new XYChart.Data(paymentQueue.carsInQueue(), "Payment Car Queue"));
+		       
+		        getData().add(series);
+		        System.out.println(passQueue.carsInQueue());
+    }
 }
