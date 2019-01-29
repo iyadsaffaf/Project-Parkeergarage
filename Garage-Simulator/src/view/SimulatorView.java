@@ -39,8 +39,8 @@ public class SimulatorView extends Canvas{
 	 */
 	public SimulatorView(SimulatorModel model) {
 		this.model = model;
-		setHeight(648);
-		setWidth(1134.0);
+		setHeight(356.0);
+		setWidth(841.0);
 
 		gc = getGraphicsContext2D();
 		AnimationTimer d = new AnimationTimer() {
