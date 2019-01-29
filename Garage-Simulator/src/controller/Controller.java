@@ -213,16 +213,7 @@ public class Controller implements Initializable  {
 			
 			
 		});
-		
-		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			paneAutos.setVisible(false);
-			paneQueu.setVisible(false);
-			paneWinst.setVisible(false);
-			paneReserveren.setVisible(false);
-			
-			paneReset.setVisible(true);
-		});
-		
+		paneReset.setVisible(false);
 		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
