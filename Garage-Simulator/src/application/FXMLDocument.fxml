@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -38,6 +40,11 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
+                        <Text fill="#254646" layoutX="174.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
                         <Text fill="#254646" layoutX="125.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuts">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -48,6 +55,11 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
+                        <Label fx:id="labelSeconds" layoutX="174.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
                         <Label fx:id="labelMinuts" layoutX="125.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
                            <font>
                               <Font name="System Bold" size="22.0" />
@@ -110,21 +122,50 @@
             </Button>
          </children>
       </VBox>
-      <StackPane layoutX="268.0" layoutY="429.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="859.0">
-         <children>
-            <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
-            <Pane fx:id="paneQueu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="821.0" visible="false" />
-            <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
-            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false" />
-            <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0" visible="false" />
-         </children>
-      </StackPane>
       <Pane fx:id="paneSimulator" layoutX="268.0" layoutY="38.0" prefHeight="356.0" prefWidth="841.0" />
       <ImageView fx:id="bttonExit" blendMode="MULTIPLY" fitHeight="43.0" fitWidth="41.0" layoutX="1107.0" layoutY="14.0" onMousePressed="#handleButtonExit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
+      <StackPane layoutX="268.0" layoutY="429.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="859.0">
+         <children>
+            <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0">
+               <children>
+      				<TextField fx:id="exitSpeedField" layoutX="535.0" layoutY="132.0" />
+                  <Text fx:id="exitSpeedText" layoutX="460.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Speed" />
+                  <TextField fx:id="paymentSpeedField" layoutX="535.0" layoutY="82.0" />
+                  <Text fx:id="paymentSpeedText" layoutX="429.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Speed" />
+                  <TextField fx:id="enterSpeedField" layoutX="535.0" layoutY="32.0" />
+                  <Text fx:id="enterSpeedText" layoutX="450.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Speed" />
+                  
+                        <TextField fx:id="weekendResvField" layoutX="155.0" layoutY="282.0" />
+                  <Text fx:id="weekendResvText" layoutX="10.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekend Reservations" />
+                  <TextField fx:id="weekdayResvField" layoutX="155.0" layoutY="232.0" /> 
+                  <Text fx:id="weekdayResvText" layoutX="10.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekday Reservations" />
+                  
+                        <TextField fx:id="weekendMemberField" layoutX="155.0" layoutY="182.0" /> 
+                  <Text fx:id="weekendMemeberText" layoutX="35.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekend Members" />
+                  <TextField fx:id="weekdayMemberField" layoutX="155.0" layoutY="132.0" /> 
+                  <Text fx:id="weekdayMemberText" layoutX="35.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekday Members" />
+                  
+                        <TextField fx:id="weekendArrivalField" layoutX="155.0" layoutY="82.0" /> 
+                  <Text fx:id="weekendArrivalText" layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekend Arrival" />
+                  <TextField fx:id="weekdayArrivalField" layoutX="155.0" layoutY="32.0" text=" ">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField> 
+                  <Text fx:id="weekdayArrivalText" layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" text="Weekday Arrival" />
+                  
+                        <Button fx:id="resetSubmit" layoutX="632.0" layoutY="183.0" mnemonicParsing="false" text="Submit" textFill="WHITE" />
+               </children></Pane>
+            <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneQueu" prefHeight="354.0" prefWidth="874.0" visible="false" />
+            <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false" />
+         </children>
+      </StackPane>
      
     </children>
 </AnchorPane>
