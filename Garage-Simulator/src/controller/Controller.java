@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.SimulatorModel;
 import view.AantalAutosView;
+import view.Queu;
 import view.Reserveren;
 import view.SimulatorView;
 import view.Winst;
@@ -80,6 +81,8 @@ public class Controller implements Initializable  {
     private Reserveren reseveren;
     private SimulatorModel model;
     private SimulatorView simulatorView;
+    private Queu queu;
+    
     @FXML
     void handleButtonExit(MouseEvent event) {
     		Platform.exit();
@@ -103,6 +106,9 @@ public class Controller implements Initializable  {
 		
 		simulatorView=new SimulatorView(model);
 		paneSimulator.getChildren().add(simulatorView);
+		
+		//queu = new Queu();
+		//paneQueu.getChildren().add(queu);
 		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
