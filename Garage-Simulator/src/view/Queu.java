@@ -8,40 +8,42 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
+
 /*
  * @author 	Irena Nowak
  */
-
-public class Queu extends BarChart<Number, Number> {
-	final static CategoryAxis xAxis = new CategoryAxis();
-	final static NumberAxis yAxis = new NumberAxis();S
-
+// 
+public class Queu extends BarChart<Number, String> {
+	final static NumberAxis xAxis = new NumberAxis();
+    final static CategoryAxis yAxis = new CategoryAxis();
 	public Queu() {
-		// TODO Auto-generated constructor stub
 		super(xAxis, yAxis);
-
-        setTitle("Data wachtrij voor de parkeergarage");
-        xAxis.setLabel("Rij");       
-        yAxis.setLabel("Aantal");
-	
-	XYChart.Series series = new XYChart.Series();
-    series.setName("Eerste reeks");
-    series.getData().add(new XYChart.Data(0, 10));
-    series.getData().add(new XYChart.Data(1, 23));
-    series.getData().add(new XYChart.Data(2, 14));
-    series.getData().add(new XYChart.Data(3, 15));
-    series.getData().add(new XYChart.Data(4, 24));
-    series.getData().add(new XYChart.Data(5, 34));
-    series.getData().add(new XYChart.Data(6, 36));
-    series.getData().add(new XYChart.Data(7, 22));
-    series.getData().add(new XYChart.Data(8, 45));
-    series.getData().add(new XYChart.Data(9, 43));
-    series.getData().add(new XYChart.Data(10, 17));
-    series.getData().add(new XYChart.Data(11, 29));
-    series.getData().add(new XYChart.Data(12, 25));
-
-    getData().add(series);
-    
+		
+//       
+        setTitle("Country Summary");
+        xAxis.setLabel("Value");  
+        xAxis.setTickLabelRotation(90);
+        yAxis.setLabel("Country");        
+ 
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("2003");       
+        series1.getData().add(new XYChart.Data(25601.34, "austria"));
+        series1.getData().add(new XYChart.Data(20148.82, "brazil"));
+        series1.getData().add(new XYChart.Data(10000, "france"));
+        series1.getData().add(new XYChart.Data(35407.15, "italy"));
+        series1.getData().add(new XYChart.Data(12000, "usa"));      
+        
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("2004");
+        series2.getData().add(new XYChart.Data(57401.85, ""));
+        series2.getData().add(new XYChart.Data(41941.19, "brazil"));
+        series2.getData().add(new XYChart.Data(45263.37, "france"));
+        series2.getData().add(new XYChart.Data(117320.16, "italy"));
+        series2.getData().add(new XYChart.Data(14845.27, "usa"));  
+        
+      
+        
+        getData().addAll(series1, series2);
     
     AnimationTimer d = new AnimationTimer() {
         private long lastUpdate = 0 ;
@@ -51,11 +53,6 @@ public class Queu extends BarChart<Number, Number> {
 			if (now - lastUpdate >= 500_000_000) {
                lastUpdate = now ;
 			
-			
-			   Random d = new Random();
-         	    
-          
-            int x = d.nextInt(30);     
             
             
 		}}

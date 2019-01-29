@@ -107,8 +107,8 @@ public class Controller implements Initializable  {
 		simulatorView=new SimulatorView(model);
 		paneSimulator.getChildren().add(simulatorView);
 		
-		//queu = new Queu();
-		//paneQueu.getChildren().add(queu);
+		queu = new Queu();
+		paneQueu.getChildren().add(queu);
 		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
