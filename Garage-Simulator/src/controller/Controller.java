@@ -170,8 +170,8 @@ public class Controller implements Initializable {
 		simulatorView = new SimulatorView(model);
 		paneSimulator.getChildren().add(simulatorView);
 
-		queu = new Queu();
-		paneQueu.getChildren().add(queu);
+	queu = new Queu(model);
+    paneQueu.getChildren().add(queu);
 		// slider aanpassen
 
 		sildeSpeed.valueProperty().addListener(new ChangeListener<Number>() {
