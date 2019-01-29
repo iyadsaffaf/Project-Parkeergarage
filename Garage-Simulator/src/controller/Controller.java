@@ -1,12 +1,16 @@
 package controller;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -64,8 +68,7 @@ public class Controller implements Initializable  {
     @FXML
     private Label labelDays;
 
-    @FXML
-    private Label labelSeconds;
+    
 
     @FXML
     private Label labelMinuts;
@@ -109,6 +112,8 @@ public class Controller implements Initializable  {
 		
 		queu = new Queu();
 		paneQueu.getChildren().add(queu);
+		 
+		
 		
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
@@ -160,12 +165,39 @@ public class Controller implements Initializable  {
 			
 			
 		});
+	//clock timer	
+		AnimationTimer d = new AnimationTimer() {
+			private long lastUpdate = 0;
+
+			@Override
+			public void handle(long now) {
+				if (now - lastUpdate >= 1000_000_000) {
+				lastUpdate = now;
+					labelDays.setText(String.valueOf("2"));
+					if(!model.equals(null)) {
+						String s = String.valueOf(model.getDay());
+						String s1 = String.valueOf(model.getHour());
+						String s2 = String.valueOf(model.getMinute());
+						
+						labelDays.setText("  "+String.valueOf(s));
+						labelHours.setText("  "+String.valueOf(s1));
+						labelMinuts.setText("  "+String.valueOf(s2));
+						
+					}
+				}
+			}
+		};
+		d.start();
+		
+	// here ends the colck timer	
 		
 	}
+	
+	
 	  @FXML
 	private void handleButtonAction(ActionEvent event) {
 	         
 	       
 	}
-
+   
 }

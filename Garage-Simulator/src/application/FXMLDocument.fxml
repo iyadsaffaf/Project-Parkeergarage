@@ -38,11 +38,6 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <Text fill="#254646" layoutX="174.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Text>
                         <Text fill="#254646" layoutX="125.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minuts">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -53,11 +48,6 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <Label fx:id="labelSeconds" layoutX="174.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
                         <Label fx:id="labelMinuts" layoutX="125.0" layoutY="24.0" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #879998;" text="WO" textFill="#254646">
                            <font>
                               <Font name="System Bold" size="22.0" />
