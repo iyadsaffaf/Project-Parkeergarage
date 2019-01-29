@@ -211,9 +211,9 @@ public class Controller implements Initializable  {
 			if(pressed) {
 			model.setIsrunning(true);
 			pressed=false;
-			
-//			Image image = new Image("@../images/close.png");
+			//		Image image = new Image("@../images/close.png");
 //	         buttonPlay.setImage(image);
+			
 			
 			}
 			else {
