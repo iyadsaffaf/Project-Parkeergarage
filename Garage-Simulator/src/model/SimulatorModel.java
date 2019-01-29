@@ -73,6 +73,7 @@ public class SimulatorModel {
 		this.numberOfParkingPassCar = 0;
 		this.weekDayReserverenArrivals = 100;
 		this.weekendReserverenArrivals = 0;
+		this.speedOfSumlator=500000000;
 
 	}
 

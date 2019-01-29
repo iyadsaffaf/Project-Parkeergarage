@@ -19,6 +19,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -29,213 +30,211 @@ import view.Reserveren;
 import view.SimulatorView;
 import view.Winst;
 
-public class Controller implements Initializable  {
-    
-    @FXML
-    private Button buttonAutos;
+public class Controller implements Initializable {
 
-    @FXML
-    private Button buttonQueu;
+	@FXML
+	private Button buttonAutos;
 
-    @FXML
-    private Button buttonWinst;
+	@FXML
+	private Button buttonQueu;
 
-    @FXML
-    private Button buttonReserveren;
+	@FXML
+	private Button buttonWinst;
 
-    @FXML
-    private Button buttonReset;
+	@FXML
+	private Button buttonReserveren;
 
-    @FXML
-    private Pane paneSimulator;
+	@FXML
+	private Button buttonReset;
 
-    @FXML
-    private Pane paneAutos;
+	@FXML
+	private Pane paneSimulator;
 
-    @FXML
-    private Pane paneQueu;
+	@FXML
+	private Pane paneAutos;
 
-    @FXML
-    private Pane paneWinst;
+	@FXML
+	private Pane paneQueu;
 
-    @FXML
-    private Pane paneReserveren;
+	@FXML
+	private Pane paneWinst;
 
-    @FXML
-    private Pane paneReset;
+	@FXML
+	private Pane paneReserveren;
 
-    @FXML
-    private Slider sildeSpeed;
+	@FXML
+	private Pane paneReset;
 
-    @FXML
-    private ImageView buttonPlay;
+	@FXML
+	private Slider sildeSpeed;
 
-    @FXML
-    private Label labelDays;
+	@FXML
+	private ImageView buttonPlay;
 
-    @FXML
-    private Label labelMinuts;
+	@FXML
+	private Label labelDays;
 
-    @FXML
-    private Label labelHours;
+	@FXML
+	private Label labelMinuts;
 
-    @FXML
-    private ImageView bttonExit;
-    
+	@FXML
+	private Label labelHours;
 
-    @FXML
-    private TextField exitSpeedField;
+	@FXML
+	private ImageView bttonExit;
 
-    @FXML
-    private Text exitSpeedText;
+	@FXML
+	private TextField exitSpeedField;
 
-    @FXML
-    private TextField paymentSpeedField;
+	@FXML
+	private Text exitSpeedText;
 
-    @FXML
-    private Text paymentSpeedText;
+	@FXML
+	private TextField paymentSpeedField;
 
-    @FXML
-    private TextField enterSpeedField;
+	@FXML
+	private Text paymentSpeedText;
 
-    @FXML
-    private Text enterSpeedText;
+	@FXML
+	private TextField enterSpeedField;
 
-    @FXML
-    private TextField weekendResvField;
+	@FXML
+	private Text enterSpeedText;
 
-    @FXML
-    private Text weekendResvText;
+	@FXML
+	private TextField weekendResvField;
 
-    @FXML
-    private TextField weekdayResvField;
+	@FXML
+	private Text weekendResvText;
 
-    @FXML
-    private Text weekdayResvText;
+	@FXML
+	private TextField weekdayResvField;
 
-    @FXML
-    private TextField weekendMemberField;
+	@FXML
+	private Text weekdayResvText;
 
-    @FXML
-    private Text weekendMemeberText;
+	@FXML
+	private TextField weekendMemberField;
 
-    @FXML
-    private TextField weekdayMemberField;
+	@FXML
+	private Text weekendMemeberText;
 
-    @FXML
-    private Text weekdayMemberText;
+	@FXML
+	private TextField weekdayMemberField;
 
-    @FXML
-    private TextField weekendArrivalField;
+	@FXML
+	private Text weekdayMemberText;
 
-    @FXML
-    private Text weekendArrivalText;
+	@FXML
+	private TextField weekendArrivalField;
 
-    @FXML
-    private TextField weekdayArrivalField;
-    
-    @FXML
-    private Button resetSubmit;
+	@FXML
+	private Text weekendArrivalText;
 
-    @FXML
-    private Text weekdayArrivalText;
-    private AantalAutosView Autos;
-    private Winst winst;
-    private Reserveren reseveren;
-    private SimulatorModel model;
-    private SimulatorView simulatorView;
-    private Queu queu;
-    private boolean pressed;
-    
-    @FXML
-    void handleButtonExit(MouseEvent event) {
-    		Platform.exit();
-    		System.exit(0);
-    }
-	
+	@FXML
+	private TextField weekdayArrivalField;
+
+	@FXML
+	private Button resetSubmit;
+
+	@FXML
+	private Text weekdayArrivalText;
+	private AantalAutosView Autos;
+	private Winst winst;
+	private Reserveren reseveren;
+	private SimulatorModel model;
+	private SimulatorView simulatorView;
+	private Queu queu;
+	private boolean pressed;
+
+	@FXML
+	void handleButtonExit(MouseEvent event) {
+		Platform.exit();
+		System.exit(0);
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 		model = new SimulatorModel();
 		Autos = new AantalAutosView(model);
 		paneAutos.getChildren().add(Autos);
-		
+
 		winst = new Winst();
 		paneWinst.getChildren().add(winst);
-		
-		
+
 		reseveren = new Reserveren();
 		paneReserveren.getChildren().add(reseveren);
-		
-		simulatorView=new SimulatorView(model);
+
+		simulatorView = new SimulatorView(model);
 		paneSimulator.getChildren().add(simulatorView);
-		
+
 		queu = new Queu();
 		paneQueu.getChildren().add(queu);
-		 
-		
-		
+		// slider aanpassen
+
+		sildeSpeed.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+
+				model.setSpeedOfSumlator(new_val.intValue() * 1000000);
+
+			}
+		});
+
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(true);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
-			
-			
+
 		});
-		
+
 		buttonWinst.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(true);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
-			
-			
+
 		});
-		
+
 		buttonQueu.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(true);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
-			
-			
-		});
-		//play button
-		pressed=true;
-		buttonPlay.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			if(pressed) {
-			model.setIsrunning(true);
-			pressed=false;
-			//		Image image = new Image("@../images/close.png");
-//	         buttonPlay.setImage(image);
-			
-			
-			}
-			else {
-				pressed=true;
-				model.setIsrunning(false);
-//		         Image image = new Image("@../images/close.png");
-//		         buttonPlay.setImage(image);
 
-				
-			}
-			
-			
 		});
-		
+		// play and pause button
+		pressed = true;
+		buttonPlay.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			if (pressed) {
+				model.setIsrunning(true);
+				pressed = false;
+				Image image = new Image("/images/pause.png");
+
+				buttonPlay.setImage(image);
+
+			} else {
+				pressed = true;
+				model.setIsrunning(false);
+				Image image = new Image("/images/play.png");
+				buttonPlay.setImage(image);
+
+			}
+
+		});
+
 		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(true);
 			paneReset.setVisible(false);
-			
-			
+
 		});
 		paneReset.setVisible(false);
 		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -243,7 +242,7 @@ public class Controller implements Initializable  {
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
-			
+
 			paneReset.setVisible(true);
 			weekdayArrivalField.setText(String.valueOf(model.getWeekDayArrivals()));
 			weekendArrivalField.setText(String.valueOf(model.getWeekendArrivals()));
@@ -255,13 +254,10 @@ public class Controller implements Initializable  {
 			paymentSpeedField.setText(String.valueOf(model.getPaymentSpeed()));
 			exitSpeedField.setText(String.valueOf(model.getExitSpeed()));
 		});
-			
-		//play button
-		
-		
-		
-		
-		//resetView = new Reset();
+
+		// play button
+
+		// resetView = new Reset();
 		resetSubmit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			int a1 = Integer.parseInt(weekdayArrivalField.getText());
 			int a2 = Integer.parseInt(weekendArrivalField.getText());
@@ -272,7 +268,7 @@ public class Controller implements Initializable  {
 			int enter = Integer.parseInt(enterSpeedField.getText());
 			int payment = Integer.parseInt(paymentSpeedField.getText());
 			int exit = Integer.parseInt(exitSpeedField.getText());
-			
+
 			model.setWeekDayArrivals(a1);
 			model.setWeekendArrivals(a2);
 			model.setWeekDayPassArrivals(r1);
@@ -282,146 +278,135 @@ public class Controller implements Initializable  {
 			model.setEnterSpeed(enter);
 			model.setPaymentSpeed(payment);
 			model.setExitSpeed(exit);
-			
-			//System.out.println("A1="+ a1 + "A2= " + a2 +"R1= "+ r1 +" R2="+ r2 +"M1="+ m1 +"M2="+ m2 + "Enter=" + enter + "Payment=" + payment + "Exit=" + exit);
+
+			// System.out.println("A1="+ a1 + "A2= " + a2 +"R1= "+ r1 +" R2="+ r2 +"M1="+ m1
+			// +"M2="+ m2 + "Enter=" + enter + "Payment=" + payment + "Exit=" + exit);
 		});
-			
-			
-			//------------------------- Settings conrtolle op numberric --------------------------------------//
-			// weekend arrival 
-			weekendArrivalField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekendArrivalField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			// weekday Arrival 
-			weekdayArrivalField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekdayArrivalField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			//weekend Member
-			weekendMemberField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekendMemberField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			//weekday Member 
-			weekdayMemberField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekdayMemberField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			// weekend Resv
-			weekendResvField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekendResvField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			// weekday Resv 
-			weekdayResvField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		weekdayResvField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			//enter Speed
-			enterSpeedField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		enterSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			// payment Speed 
-			
-			
-			paymentSpeedField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        		paymentSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-			// exit Speed
-			exitSpeedField.textProperty().addListener(new ChangeListener<String>() {
-			    @Override
-			    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-			        String newValue) {
-			        if (!newValue.matches("\\d*")) {
-			        	exitSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
-			        }
-			    }
-			});
-			
-	//clock timer	
+
+		// ------------------------- Settings conrtolle op numberric
+		// --------------------------------------//
+		// weekend arrival
+		weekendArrivalField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekendArrivalField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// weekday Arrival
+		weekdayArrivalField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekdayArrivalField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// weekend Member
+		weekendMemberField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekendMemberField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// weekday Member
+		weekdayMemberField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekdayMemberField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// weekend Resv
+		weekendResvField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekendResvField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// weekday Resv
+		weekdayResvField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					weekdayResvField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// enter Speed
+		enterSpeedField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					enterSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// payment Speed
+
+		paymentSpeedField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					paymentSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// exit Speed
+		exitSpeedField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					exitSpeedField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+
+		// clock timer
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
 
 			@Override
 			public void handle(long now) {
 				if (now - lastUpdate >= 1000_000_000) {
-				lastUpdate = now;
+					lastUpdate = now;
 					labelDays.setText(String.valueOf("2"));
-					if(!model.equals(null)) {
+					if (!model.equals(null)) {
 						String s = String.valueOf(model.getDay());
 						String s1 = String.valueOf(model.getHour());
 						String s2 = String.valueOf(model.getMinute());
-						
-						labelDays.setText("  "+String.valueOf(s));
-						labelHours.setText("  "+String.valueOf(s1));
-						labelMinuts.setText("  "+String.valueOf(s2));
-						
+
+						labelDays.setText("  " + String.valueOf(s));
+						labelHours.setText("  " + String.valueOf(s1));
+						labelMinuts.setText("  " + String.valueOf(s2));
+
 					}
 				}
 			}
 		};
 		d.start();
-		
-	// here ends the colck timer	
-		
+
+		// here ends the colck timer
+
 	}
-	
-	
-	  @FXML
+
+	@FXML
 	private void handleButtonAction(ActionEvent event) {
-	         
-	       
+
 	}
-   
+
 }
