@@ -167,7 +167,7 @@ public class Controller implements Initializable {
 		winst = new Winst(model);
 		paneWinst.getChildren().add(winst);
 
-		reseveren = new Reserveren();
+		reseveren = new Reserveren(model);
 		paneReserveren.getChildren().add(reseveren);
 
 		simulatorView = new SimulatorView(model);

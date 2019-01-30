@@ -1,48 +1,79 @@
 package view;
 
+
+import javafx.animation.AnimationTimer;
 import javafx.scene.chart.AreaChart;
+//import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import model.SimulatorModel;
 
-public class Reserveren extends  AreaChart <Number,Number>  {
-	 final static NumberAxis xAxis = new NumberAxis(1, 31, 1);
+/*
+ * @author Batul Khatib
+ * */
+
+public class Reserveren  extends AreaChart <Number,Number> {
+	 final static NumberAxis xAxis = new NumberAxis();
      final static NumberAxis yAxis = new NumberAxis();
-	public Reserveren() {
+     private SimulatorModel model;
+
+	public Reserveren(SimulatorModel model) {
 		super(xAxis,yAxis);
+		this.model = model;
 	
         
-        setTitle("Reseveren");
- 
-        Series seriesApril= new XYChart.Series();
-        seriesApril.setName("April");
-        seriesApril.getData().add(new XYChart.Data(1, 4));
-        seriesApril.getData().add(new XYChart.Data(3, 10));
-        seriesApril.getData().add(new XYChart.Data(6, 15));
-        seriesApril.getData().add(new XYChart.Data(9, 8));
-        seriesApril.getData().add(new XYChart.Data(12, 5));
-        seriesApril.getData().add(new XYChart.Data(15, 18));
-        seriesApril.getData().add(new XYChart.Data(18, 15));
-        seriesApril.getData().add(new XYChart.Data(21, 13));
-        seriesApril.getData().add(new XYChart.Data(24, 19));
-        seriesApril.getData().add(new XYChart.Data(27, 21));
-        seriesApril.getData().add(new XYChart.Data(30, 21));
-        
-        XYChart.Series seriesMay = new XYChart.Series();
-        seriesMay.setName("May");
-        seriesMay.getData().add(new XYChart.Data(1, 20));
-        seriesMay.getData().add(new XYChart.Data(3, 15));
-        seriesMay.getData().add(new XYChart.Data(6, 13));
-        seriesMay.getData().add(new XYChart.Data(9, 12));
-        seriesMay.getData().add(new XYChart.Data(12, 14));
-        seriesMay.getData().add(new XYChart.Data(15, 18));
-        seriesMay.getData().add(new XYChart.Data(18, 25));
-        seriesMay.getData().add(new XYChart.Data(21, 25));
-        seriesMay.getData().add(new XYChart.Data(24, 23));
-        seriesMay.getData().add(new XYChart.Data(27, 26));
-        seriesMay.getData().add(new XYChart.Data(31, 26));
-        
-        getData().addAll(seriesApril, seriesMay);
+       setTitle("Reseveren");
+        xAxis.setLabel("Reseveren");  
+        yAxis.setLabel("Uren");  
        
-	}
+        setAnimated(false);
+        AnimationTimer d = new AnimationTimer() {
+            private long lastUpdate = 0 ;
 
-}
+			@Override
+			public void handle(long now) {
+				if (now - lastUpdate >= 500_000_000) {
+                   lastUpdate = now ;
+				
+				
+                   updateGrafiek();
+                   
+				}}
+			};
+			
+		d.start();
+		    
+			}
+	         	    
+	          
+	           
+             
+	private void updateGrafiek() {
+		
+                   getData().clear();
+              XYChart.Series series = new XYChart.Series();
+   		        series.setName("Car Reseveren met abonnement");       
+   		        series.getData().add(new XYChart.Data(model.getNumberOfReserverenCar(), model.getHour()));
+   		        
+   		    
+   		   XYChart.Series series1 = new XYChart.Series();
+		        series1.setName("Car Reseveren met een parking pass");    
+		        series1.getData().add(new XYChart.Data(model.getNumberOfParkingPassCar(),model.getHour()));
+		        
+		      /* XYChart.Series series2 = new XYChart.Series();  
+		        series2.setName("Car Reseveren");   
+		        series2.getData().add(new XYChart.Data(model.getNumberOfReserverenCar(),model.getHour()));*/
+		        
+   		    getData().addAll(series, series1 );
+   		  //getData().add(series);
+   		
+		//getData().add(series2);
+   		
+      
+        
+		
+   			   
+					
+	}	
+	}
+			
