@@ -86,6 +86,6 @@ queueTimer.start();
 		        series.getData().add(new XYChart.Data(paymentQueue.carsInQueue(), "Payment Car Queue"));
 		       
 		        getData().add(series);
-		        System.out.println(passQueue.carsInQueue());
+		        
     }
 }

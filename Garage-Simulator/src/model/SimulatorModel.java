@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Dimension;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 
@@ -41,6 +42,9 @@ public class SimulatorModel {
 	private int weekendReserverenArrivals;
 	private int speedOfSumlator;
 	private boolean isrunning;
+	
+	private double totalProfit;
+    private ArrayList<Double> profitPerHour ;
 
 	public SimulatorModel() {
 		super();
@@ -74,6 +78,9 @@ public class SimulatorModel {
 		this.weekDayReserverenArrivals = 100;
 		this.weekendReserverenArrivals = 0;
 		this.speedOfSumlator=500000000;
+		this.totalProfit=0;
+	    this.profitPerHour = new ArrayList<>();
+
 
 	}
 
@@ -384,6 +391,21 @@ public class SimulatorModel {
 	public void setIsrunning(boolean isrunning) {
 		this.isrunning = isrunning;
 	}
-	
+	public double getTotalProfit() {
+		return totalProfit;
+	}
+
+	public void setTotalProfit(double totalProfit) {
+		this.totalProfit = totalProfit;
+	}
+
+	public ArrayList<Double> getProfitPerHour() {
+		return profitPerHour;
+	}
+
+	public void setProfitPerHour(ArrayList<Double> profitPerHour) {
+		this.profitPerHour = profitPerHour;
+	}
+
 
 }
