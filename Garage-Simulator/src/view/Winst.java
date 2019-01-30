@@ -9,13 +9,14 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import model.SimulatorModel;
 
 //Batul khatib
 
 public class Winst extends LineChart <Number,Number>{
 	final static NumberAxis xAxis = new NumberAxis();
 	final static NumberAxis yAxis= new NumberAxis();
-	public Winst() {
+	public Winst(SimulatorModel model) {
 		super(xAxis,yAxis);
 //	   xAxis = new NumberAxis();
 //       yAxis = new NumberAxis();
@@ -59,7 +60,7 @@ public class Winst extends LineChart <Number,Number>{
 	         	    
 	          
 	            int x = d.nextInt(30);
-	       
+	          
 //	            series.getData().add(new XYChart.Data(1, x));
 //	            series.getData().add(new XYChart.Data(2, x));
 //	            series.getData().add(new XYChart.Data(3, 15));
