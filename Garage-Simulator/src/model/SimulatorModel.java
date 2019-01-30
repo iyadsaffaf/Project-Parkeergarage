@@ -317,13 +317,14 @@ public class SimulatorModel {
 		// Advance the time by one minute.
 		minute++;
 		while (minute > 59) {
+			getProfitPerDay().add(getTotalProfit());
+			System.out.println(getProfitPerDay());
+			setTotalProfit(0);
 			minute -= 60;
 			hour++;
 		}
 		while (hour > 23) {
-			getProfitPerDay().add(getTotalProfit());
-			System.out.println(getProfitPerDay());
-			setTotalProfit(0);
+
 			
 			hour -= 24;
 			day++;

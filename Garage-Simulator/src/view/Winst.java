@@ -18,6 +18,7 @@ public class Winst extends LineChart <Number,Number>{
 	final static NumberAxis xAxis = new NumberAxis();
 	final static NumberAxis yAxis= new NumberAxis();
 	private SimulatorModel model;
+	private int base = 0;
 	public Winst(SimulatorModel model) {
 		
 		super(xAxis,yAxis);
@@ -32,18 +33,18 @@ public class Winst extends LineChart <Number,Number>{
         XYChart.Series series = new XYChart.Series();
         series.setName("My portfolio");
         //populating the series with data
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
-        series.getData().add(new XYChart.Data(6, 36));
-        series.getData().add(new XYChart.Data(7, 22));
-        series.getData().add(new XYChart.Data(8, 45));
-        series.getData().add(new XYChart.Data(9, 43));
-        series.getData().add(new XYChart.Data(10, 17));
-        series.getData().add(new XYChart.Data(11, 29));
-        series.getData().add(new XYChart.Data(12, 25));
+//        series.getData().add(new XYChart.Data(1, 1));
+//        series.getData().add(new XYChart.Data(2, 14));
+//        series.getData().add(new XYChart.Data(3, 15));
+//        series.getData().add(new XYChart.Data(4, 24));
+//        series.getData().add(new XYChart.Data(5, 34));
+//        series.getData().add(new XYChart.Data(6, 36));
+//        series.getData().add(new XYChart.Data(7, 22));
+//        series.getData().add(new XYChart.Data(8, 45));
+//        series.getData().add(new XYChart.Data(9, 43));
+//        series.getData().add(new XYChart.Data(10, 17));
+//        series.getData().add(new XYChart.Data(11, 29));
+//        series.getData().add(new XYChart.Data(12, 25));
         
         getData().add(series);
         
@@ -62,7 +63,11 @@ public class Winst extends LineChart <Number,Number>{
 	         	    
 	          
 	            int x = d.nextInt(30);
-	          
+	            if(base < model.getHour()) {
+		    			series.getData().add(new XYChart.Data(base, model.getTotalProfit()));
+		    			base = model.getHour();
+	            }
+		    		
 //	            series.getData().add(new XYChart.Data(1, x));
 //	            series.getData().add(new XYChart.Data(2, x));
 //	            series.getData().add(new XYChart.Data(3, 15));
@@ -72,7 +77,7 @@ public class Winst extends LineChart <Number,Number>{
 //	            series.getData().add(new XYChart.Data(7, 22));
 //	            series.getData().add(new XYChart.Data(8, 45));
 //	            series.getData().add(new XYChart.Data(9, 43));
-//	            getData().add(series);
+	            getData().add(series);
 	            
 	            
 			}}
@@ -81,6 +86,5 @@ public class Winst extends LineChart <Number,Number>{
    setLegendSide(Side.LEFT);
    
 	}
-	
 
 }
