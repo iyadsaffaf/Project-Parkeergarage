@@ -67,7 +67,6 @@ public class Winst extends LineChart <Number,Number>{
 		    			series.getData().add(new XYChart.Data(base, model.getTotalProfit()));
 		    			base = model.getHour();
 	            }
-		    		
 //	            series.getData().add(new XYChart.Data(1, x));
 //	            series.getData().add(new XYChart.Data(2, x));
 //	            series.getData().add(new XYChart.Data(3, 15));

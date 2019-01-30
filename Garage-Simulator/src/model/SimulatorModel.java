@@ -325,7 +325,6 @@ public class SimulatorModel {
 		}
 		while (hour > 23) {
 
-			
 			hour -= 24;
 			day++;
 		}
