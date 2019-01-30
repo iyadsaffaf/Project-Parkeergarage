@@ -4,6 +4,7 @@ import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Side;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
@@ -15,8 +16,9 @@ public class Queu extends BarChart<Number, String> {
 	/*
 	 * Class Queu - Laat een BarChart zien met daarin de data van alle wachtende auto's voor de parkeergarage
 	 * 
-	 * @author 		Irena Nowak
-	 * @version		30 januari 2019
+	 * @author  		Irena Nowak 
+	 * @version		29 januari 2019
+
 	 */
 	
 	private CarQueue queue;
@@ -36,7 +38,6 @@ public class Queu extends BarChart<Number, String> {
 		this.model = model;
 
 		// Maakt de algemene gegevens van BarChart aan		
-        setTitle("Wachtrij");
         xAxis.setLabel("Wachtrij");  
         xAxis.setTickLabelRotation(90);
         yAxis.setLabel("Garage");   
@@ -86,6 +87,7 @@ queueTimer.start();
 		        series.getData().add(new XYChart.Data(paymentQueue.carsInQueue(), "Payment Car Queue"));
 		       
 		        getData().add(series);
-		        
+		        setLegendSide(Side.LEFT);
+
     }
 }

@@ -12,8 +12,8 @@ public abstract class Car {
     private boolean isPaying;
     private boolean badAtParking = false;
     private boolean hasToPay;
-	double payPrice = 0.05;
-	double profitCar;
+	double payPrice = 1;
+	double profitCar=0;
 
     /**
      * Constructor for objects of class Car
@@ -111,9 +111,9 @@ public abstract class Car {
     
     public double profitCar() {
 
-		if(this.getIsPaying()) {
+		
 			profitCar = this.getStayMinutes() * payPrice;
-		}
+		
 		return profitCar;
     }
 }

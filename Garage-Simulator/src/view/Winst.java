@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
+import javafx.geometry.Side;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
@@ -16,7 +17,9 @@ import model.SimulatorModel;
 public class Winst extends LineChart <Number,Number>{
 	final static NumberAxis xAxis = new NumberAxis();
 	final static NumberAxis yAxis= new NumberAxis();
+	private SimulatorModel model;
 	public Winst(SimulatorModel model) {
+		
 		super(xAxis,yAxis);
 //	   xAxis = new NumberAxis();
 //       yAxis = new NumberAxis();
@@ -25,7 +28,6 @@ public class Winst extends LineChart <Number,Number>{
 //        final LineChart<Number,Number> lineChart = 
 //                new LineChart<Number,Number>(xAxis,yAxis);
                 
-      setTitle("Stock Monitoring, 2010");
         //defining a series
         XYChart.Series series = new XYChart.Series();
         series.setName("My portfolio");
@@ -53,7 +55,7 @@ public class Winst extends LineChart <Number,Number>{
 			public void handle(long now) {
 				if (now - lastUpdate >= 500_000_000) {
                    lastUpdate = now ;
-				
+				System.out.println(model.getTotalProfit());
 				
 				
 				   Random d = new Random();
@@ -76,6 +78,7 @@ public class Winst extends LineChart <Number,Number>{
 			}}
 		};
    d.start();
+   setLegendSide(Side.LEFT);
    
 	}
 	

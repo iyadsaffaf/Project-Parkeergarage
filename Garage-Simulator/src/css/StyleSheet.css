@@ -20,6 +20,7 @@ and open the template in the editor.
 .button:pressed{
   -fx-background-color: #7156DD;
 }
+
  .controllerPane{
  	
  	-fx-background-color:  linear-gradient( #C9D6FF,#E2E2E2 );
@@ -29,3 +30,6 @@ and open the template in the editor.
 -fx-border-width:5;
  	
  }
+.data0.chart-pie { -fx-pie-color: red; }
+.data1.chart-pie { -fx-pie-color: blue; }
+.data2.chart-pie { -fx-pie-color: yellow; }

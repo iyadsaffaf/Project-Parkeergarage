@@ -167,13 +167,16 @@ public class SimulatorView extends Canvas {
 		addArrivingCars(numberOfCars, PASS);
 		numberOfCars = getNumberOfCars(model.getWeekDayReserverenArrivals(), model.getWeekendReserverenArrivals());
 		addArrivingCars(numberOfCars, RES);
+//		
 	}
 
 	private void carsEntering(CarQueue queue) {
 		int i = 0;
 		// Remove car from the front of the queue and assign to a parking space.
 		while (queue.carsInQueue() > 0 && model.getNumberOfOpenSpots() > 0 && i < model.getEnterSpeed()) {
+			
 			Car car = queue.removeCar();
+			
 			Location freeLocation = getFirstFreeLocation();
 			model.setCarAt(freeLocation, car);
 			i++;
@@ -198,7 +201,6 @@ public class SimulatorView extends Canvas {
 		// Let cars pay.
 		int i = 0;
 		while (model.getPaymentCarQueue().carsInQueue() > 0 && i < model.getPaymentSpeed()) {
-			
 			Car car = model.getPaymentCarQueue().removeCar();
 			// TODO Handle payment.
 			carLeavesSpot(car);
@@ -209,10 +211,8 @@ public class SimulatorView extends Canvas {
 	private void carsLeaving() {
 		// Let cars leave.
 		int i = 0;
-		
 		while (model.getExitCarQueue().carsInQueue() > 0 && i < model.getExitSpeed()) {
-			Car car = model.getExitCarQueue().getCar();
-			model.setTotalProfit(model.getTotalProfit() + car.profitCar());
+
 			model.getExitCarQueue().removeCar();
 			i++;
 		}
@@ -236,6 +236,9 @@ public class SimulatorView extends Canvas {
 		case AD_HOC:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
+//				
+				model.setTotalProfit(model.getTotalProfit() + numberOfCars*60);
+				
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 			}
 			break;

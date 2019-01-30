@@ -8,6 +8,7 @@ import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 import model.SimulatorModel;
 
@@ -25,12 +26,11 @@ public class AantalAutosView extends PieChart {
 //			 pieChartData =
 //		             FXCollections.observableArrayList(
 //		             new PieChart.Data("Grapefruit", 13),
-//		             new PieChart.Data("Oranges", 25),
+//		             new PieChart.Data("Oranges", 25) , 
 //		             new PieChart.Data("Plums", 10),
 //		             new PieChart.Data("Pears", 22),
 //		             new PieChart.Data("Apples", 30));
 
-		setTitle("Auto's in de garage");
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -49,11 +49,25 @@ public class AantalAutosView extends PieChart {
 							);
 					setAnimated(false);
 					setData(pieChartData);
+					setLabelsVisible(false);
+					setLegendSide(Side.LEFT);
+					setMaxHeight(350);
+					setStartAngle(90);
 
 				}
 			}}
 		};
 		d.start();
+	      try
+	      {
+	         getStylesheets().add("StyleSheet.css");   
+	      }
+	      
+	      catch (Exception ex)
+	      {
+	         System.err.println("Cannot acquire stylesheet: " + ex.toString());
+	      }
 	}
+	
 	
 }

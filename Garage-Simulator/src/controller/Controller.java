@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import model.SimulatorModel;
@@ -146,6 +147,8 @@ public class Controller implements Initializable {
 	private SimulatorView simulatorView;
 	private Queu queu;
 	private boolean pressed;
+	private String active = "-fx-background-color: #A055DD";
+	private String inActive = "-fx-background-color: #3F2B63";
 
 	@FXML
 	void handleButtonExit(MouseEvent event) {
@@ -170,8 +173,8 @@ public class Controller implements Initializable {
 		simulatorView = new SimulatorView(model);
 		paneSimulator.getChildren().add(simulatorView);
 
-	queu = new Queu(model);
-    paneQueu.getChildren().add(queu);
+		queu = new Queu(model);
+		paneQueu.getChildren().add(queu);
 		// slider aanpassen
 
 		sildeSpeed.valueProperty().addListener(new ChangeListener<Number>() {
@@ -181,33 +184,131 @@ public class Controller implements Initializable {
 
 			}
 		});
-
+		// acties voor knop overzicht 
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			// zet de pane van overzicht op visable en de rest op verborgen 
 			paneAutos.setVisible(true);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
 
-		});
+			// Zet de knop kleur naar active en de rest naar inactive
+			buttonAutos.setStyle(active);
+			buttonWinst.setStyle(inActive);
+			buttonQueu.setStyle(inActive);
+			buttonReserveren.setStyle(inActive);
+			buttonReset.setStyle(inActive);
 
+		});
+		
+		// acties voor knop omzet 
 		buttonWinst.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			// zet de pane van omzet op visable en de rest op verborgen
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(true);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
 
+			// Zet de knop kleur naar active en de rest naar inActive
+			buttonAutos.setStyle(inActive);
+			buttonWinst.setStyle(active);
+			buttonQueu.setStyle(inActive);
+			buttonReserveren.setStyle(inActive);
+			buttonReset.setStyle(inActive);
+
 		});
 
+		// acties voor knop Queue
 		buttonQueu.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			// zet de pane van queue op visable en de rest op verborgen
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(true);
 			paneWinst.setVisible(false);
 			paneReserveren.setVisible(false);
 			paneReset.setVisible(false);
 
+			// Zet de knop kleur naar active en de rest naar inActive
+			buttonAutos.setStyle(inActive);
+			buttonWinst.setStyle(inActive);
+			buttonQueu.setStyle(active);
+			buttonReserveren.setStyle(inActive);
+			buttonReset.setStyle(inActive);
+
 		});
+		
+		// acties voor knop Reserveren
+		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			//zet de pane van Reserveren op visable en de rest op verborgen
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(false);
+			paneWinst.setVisible(false);
+			paneReserveren.setVisible(true);
+			paneReset.setVisible(false);
+
+			// Zet de knop kleur naar active en de rest naar inActive
+			buttonAutos.setStyle(inActive);
+			buttonWinst.setStyle(inActive);
+			buttonQueu.setStyle(inActive);
+			buttonReserveren.setStyle(active);
+			buttonReset.setStyle(inActive);
+
+		});
+		
+		// acties voor Instellingen 
+		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			//zet de pane van Reserveren op visable en de rest op verborgen
+			paneAutos.setVisible(false);
+			paneQueu.setVisible(false);
+			paneWinst.setVisible(false);
+			paneReserveren.setVisible(false);
+			paneReset.setVisible(true);
+
+			// Zet de knop kleur naar active en de rest naar inActive
+			buttonAutos.setStyle(inActive);
+			buttonWinst.setStyle(inActive);
+			buttonQueu.setStyle(inActive);
+			buttonReserveren.setStyle(inActive);
+			buttonReset.setStyle(active);
+
+			//Zet de waardes in de TextFields van instellingen 
+			weekdayArrivalField.setText(String.valueOf(model.getWeekDayArrivals()));
+			weekendArrivalField.setText(String.valueOf(model.getWeekendArrivals()));
+			weekdayMemberField.setText(String.valueOf(model.getWeekDayPassArrivals()));
+			weekendMemberField.setText(String.valueOf(model.getWeekendPassArrivals()));
+			weekdayResvField.setText(String.valueOf(model.getWeekDayReserverenArrivals()));
+			weekendResvField.setText(String.valueOf(model.getWeekendReserverenArrivals()));
+			enterSpeedField.setText(String.valueOf(model.getEnterSpeed()));
+			paymentSpeedField.setText(String.valueOf(model.getPaymentSpeed()));
+			exitSpeedField.setText(String.valueOf(model.getExitSpeed()));
+		});
+
+		// Wijzigd de waardes naar de ingevoere waardes
+		resetSubmit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			// Ingevoerde waardes omzetten naar int
+			int a1 = Integer.parseInt(weekdayArrivalField.getText());
+			int a2 = Integer.parseInt(weekendArrivalField.getText());
+			int r1 = Integer.parseInt(weekdayResvField.getText());
+			int r2 = Integer.parseInt(weekendResvField.getText());
+			int m1 = Integer.parseInt(weekdayMemberField.getText());
+			int m2 = Integer.parseInt(weekendMemberField.getText());
+			int enter = Integer.parseInt(enterSpeedField.getText());
+			int payment = Integer.parseInt(paymentSpeedField.getText());
+			int exit = Integer.parseInt(exitSpeedField.getText());
+
+			// Waardes in model wijzigen
+			model.setWeekDayArrivals(a1);
+			model.setWeekendArrivals(a2);
+			model.setWeekDayPassArrivals(r1);
+			model.setWeekendPassArrivals(r2);
+			model.setWeekDayReserverenArrivals(m1);
+			model.setWeekendReserverenArrivals(m2);
+			model.setEnterSpeed(enter);
+			model.setPaymentSpeed(payment);
+			model.setExitSpeed(exit);
+		});
+		
 		// play and pause button
 		pressed = true;
 		buttonPlay.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -228,63 +329,7 @@ public class Controller implements Initializable {
 
 		});
 
-		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			paneAutos.setVisible(false);
-			paneQueu.setVisible(false);
-			paneWinst.setVisible(false);
-			paneReserveren.setVisible(true);
-			paneReset.setVisible(false);
-
-		});
-		paneReset.setVisible(false);
-		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			paneAutos.setVisible(false);
-			paneQueu.setVisible(false);
-			paneWinst.setVisible(false);
-			paneReserveren.setVisible(false);
-
-			paneReset.setVisible(true);
-			weekdayArrivalField.setText(String.valueOf(model.getWeekDayArrivals()));
-			weekendArrivalField.setText(String.valueOf(model.getWeekendArrivals()));
-			weekdayMemberField.setText(String.valueOf(model.getWeekDayPassArrivals()));
-			weekendMemberField.setText(String.valueOf(model.getWeekendPassArrivals()));
-			weekdayResvField.setText(String.valueOf(model.getWeekDayReserverenArrivals()));
-			weekendResvField.setText(String.valueOf(model.getWeekendReserverenArrivals()));
-			enterSpeedField.setText(String.valueOf(model.getEnterSpeed()));
-			paymentSpeedField.setText(String.valueOf(model.getPaymentSpeed()));
-			exitSpeedField.setText(String.valueOf(model.getExitSpeed()));
-		});
-
-		// play button
-
-		// resetView = new Reset();
-		resetSubmit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			int a1 = Integer.parseInt(weekdayArrivalField.getText());
-			int a2 = Integer.parseInt(weekendArrivalField.getText());
-			int r1 = Integer.parseInt(weekdayResvField.getText());
-			int r2 = Integer.parseInt(weekendResvField.getText());
-			int m1 = Integer.parseInt(weekdayMemberField.getText());
-			int m2 = Integer.parseInt(weekendMemberField.getText());
-			int enter = Integer.parseInt(enterSpeedField.getText());
-			int payment = Integer.parseInt(paymentSpeedField.getText());
-			int exit = Integer.parseInt(exitSpeedField.getText());
-
-			model.setWeekDayArrivals(a1);
-			model.setWeekendArrivals(a2);
-			model.setWeekDayPassArrivals(r1);
-			model.setWeekendPassArrivals(r2);
-			model.setWeekDayReserverenArrivals(m1);
-			model.setWeekendReserverenArrivals(m2);
-			model.setEnterSpeed(enter);
-			model.setPaymentSpeed(payment);
-			model.setExitSpeed(exit);
-
-			// System.out.println("A1="+ a1 + "A2= " + a2 +"R1= "+ r1 +" R2="+ r2 +"M1="+ m1
-			// +"M2="+ m2 + "Enter=" + enter + "Payment=" + payment + "Exit=" + exit);
-		});
-
-		// ------------------------- Settings conrtolle op numberric
-		// --------------------------------------//
+		// -----------------Invoer velden van instellingen controlleren of invoer numeric is---------------------
 		// weekend arrival
 		weekendArrivalField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -356,7 +401,6 @@ public class Controller implements Initializable {
 		});
 
 		// payment Speed
-
 		paymentSpeedField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -399,8 +443,7 @@ public class Controller implements Initializable {
 			}
 		};
 		d.start();
-
-		// here ends the colck timer
+		// Einde klok timer
 
 	}
 
