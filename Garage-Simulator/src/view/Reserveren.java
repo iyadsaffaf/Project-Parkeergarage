@@ -54,17 +54,18 @@ public class Reserveren  extends AreaChart <Number,Number> {
               XYChart.Series series = new XYChart.Series();
    		        series.setName("Car Reseveren met abonnement");       
    		        series.getData().add(new XYChart.Data(model.getNumberOfReserverenCar(), model.getHour()));
+   		        
    		    
-   		   /*XYChart.Series series1 = new XYChart.Series();
+   		   XYChart.Series series1 = new XYChart.Series();
 		        series1.setName("Car Reseveren met een parking pass");    
-		        series1.getData().add(new XYChart.Data(model.getNumberOfParkingPassCar(),model.getHour()));*/
+		        series1.getData().add(new XYChart.Data(model.getNumberOfParkingPassCar(),model.getHour()));
 		        
 		       /* XYChart.Series series2 = new XYChart.Series();  
 		        series2.setName("Car Reseveren");   
 		        series2.getData().add(new XYChart.Data(model.getNumberOfReserverenCar(),model.getHour()));*/
 		        
-   		    //getData().addAll(series, series1 );
-   		  getData().add(series);
+   		    getData().addAll(series, series1 );
+   		  //getData().add(series);
    		
 		//getData().add(series2);
    		
