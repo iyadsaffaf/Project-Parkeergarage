@@ -18,4 +18,10 @@ public class AdHocCar extends Car {
     public Color getColor(){
     	return COLOR;
     }
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "1";
+	}
 }

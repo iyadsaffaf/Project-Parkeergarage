@@ -47,12 +47,13 @@ public class SimulatorView extends Canvas {
 
 			@Override
 			public void handle(long now) {
-				if (now - lastUpdate >=  model.getSpeedOfSumlator()) {
+//				if (now - lastUpdate >= model.getSpeedOfSumlator()) {
+//				if (now - lastUpdate >= 5) {
 					lastUpdate = now;
 					if (model.isIsrunning()) {
 						tickBig();
 
-					}
+//					}
 
 				}
 			}
@@ -174,9 +175,9 @@ public class SimulatorView extends Canvas {
 		int i = 0;
 		// Remove car from the front of the queue and assign to a parking space.
 		while (queue.carsInQueue() > 0 && model.getNumberOfOpenSpots() > 0 && i < model.getEnterSpeed()) {
-			
+
 			Car car = queue.removeCar();
-			
+
 			Location freeLocation = getFirstFreeLocation();
 			model.setCarAt(freeLocation, car);
 			i++;
@@ -201,8 +202,8 @@ public class SimulatorView extends Canvas {
 		// Let cars pay.
 		int i = 0;
 		while (model.getPaymentCarQueue().carsInQueue() > 0 && i < model.getPaymentSpeed()) {
-			
-			model.setTotalProfit(model.getTotalProfit() +model.getPaymentCarQueue().getCar().profitCar());
+
+			model.setTotalProfit(model.getTotalProfit() + model.getPaymentCarQueue().getCar().profitCar());
 
 			Car car = model.getPaymentCarQueue().removeCar();
 			// TODO Handle payment.
@@ -240,14 +241,17 @@ public class SimulatorView extends Canvas {
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
 //				
-				
+
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
+				model.setNumberOfAdHocCarNow(model.getNumberOfAdHocCarNow() + 1);
 			}
 			break;
 		case PASS:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ParkingPassCar());
 				model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar() + 1);
+				model.setNumberOfParkingPassCarNow(model.getNumberOfParkingPassCarNow() + 1);
+
 			}
 			break;
 
@@ -255,12 +259,22 @@ public class SimulatorView extends Canvas {
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ReserverenCar());
 				model.setNumberOfReserverenCar(model.getNumberOfReserverenCar() + 1);
+				model.setNumberOfReserverenCarNow(model.getNumberOfReserverenCarNow() + 1);
 			}
 			break;
 		}
 	}
 
 	private void carLeavesSpot(Car car) {
+		if (car.getType().contentEquals(AD_HOC)) {
+			model.setNumberOfAdHocCarNow(model.getNumberOfAdHocCarNow() - 1);
+		} else if (car.getType().contentEquals(PASS)) {
+			model.setNumberOfParkingPassCarNow(model.getNumberOfParkingPassCarNow() - 1);
+		} else if (car.getType().contentEquals(RES)) {
+			model.setNumberOfReserverenCarNow(model.getNumberOfReserverenCarNow() - 1);
+
+		}
+
 		model.removeCarAt(car.getLocation());
 		model.getExitCarQueue().addCar(car);
 

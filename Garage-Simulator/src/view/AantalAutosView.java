@@ -31,7 +31,6 @@ public class AantalAutosView extends PieChart {
 //		             new PieChart.Data("Pears", 22),
 //		             new PieChart.Data("Apples", 30));
 
-
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
 
@@ -39,35 +38,32 @@ public class AantalAutosView extends PieChart {
 			public void handle(long now) {
 				if (now - lastUpdate >= 1000_000) {
 					lastUpdate = now;
-                
-					 if(model.isIsrunning()) {
 
-					     
+					if (model.isIsrunning()) {
 
-					pieChartData = FXCollections.observableArrayList(new PieChart.Data("AdHoc", model.getNumberOfAdHocCar()),
-							new PieChart.Data("Pass", model.getNumberOfParkingPassCar()), new PieChart.Data("Resereveren", model.getNumberOfReserverenCar())
-							);
-					setAnimated(false);
-					setData(pieChartData);
-					setLabelsVisible(false);
-					setLegendSide(Side.LEFT);
-					setMaxHeight(350);
-					setStartAngle(90);
+						pieChartData = FXCollections.observableArrayList(
+								new PieChart.Data("AdHoc", model.getNumberOfAdHocCarNow()),
+								new PieChart.Data("Pass", model.getNumberOfParkingPassCarNow()),
+								new PieChart.Data("Resereveren", model.getNumberOfReserverenCarNow()));
+						setAnimated(false);
+						setData(pieChartData);
+						setLabelsVisible(false);
+						setLegendSide(Side.LEFT);
+						setMaxHeight(350);
+						setStartAngle(90);
 
+					}
 				}
-			}}
+			}
 		};
 		d.start();
-	      try
-	      {
-	         getStylesheets().add("StyleSheet.css");   
-	      }
-	      
-	      catch (Exception ex)
-	      {
-	         System.err.println("Cannot acquire stylesheet: " + ex.toString());
-	      }
+		try {
+			getStylesheets().add("StyleSheet.css");
+		}
+
+		catch (Exception ex) {
+			System.err.println("Cannot acquire stylesheet: " + ex.toString());
+		}
 	}
-	
-	
+
 }

@@ -45,6 +45,10 @@ public class SimulatorModel {
 
 	private double totalProfit;
     private ArrayList<Double> profitPerDay ;
+    
+    private  int numberOfAdHocCarNow;
+    private int numberOfParkingPassCarNow;
+	private int numberOfReserverenCarNow;
 	public SimulatorModel() {
 		super();
 		this.numberOfFloors = 3;
@@ -407,6 +411,30 @@ public class SimulatorModel {
 
 	public void setProfitPerDay(ArrayList<Double> profitPerHour) {
 		this.profitPerDay = profitPerHour;
+	}
+
+	public int getNumberOfAdHocCarNow() {
+		return numberOfAdHocCarNow;
+	}
+
+	public void setNumberOfAdHocCarNow(int numberOfAdHocCarNow) {
+		this.numberOfAdHocCarNow = numberOfAdHocCarNow;
+	}
+
+	public int getNumberOfParkingPassCarNow() {
+		return numberOfParkingPassCarNow;
+	}
+
+	public void setNumberOfParkingPassCarNow(int numberOfParkingPassCarNow) {
+		this.numberOfParkingPassCarNow = numberOfParkingPassCarNow;
+	}
+
+	public int getNumberOfReserverenCarNow() {
+		return numberOfReserverenCarNow;
+	}
+
+	public void setNumberOfReserverenCarNow(int numberOfReserverenCarNow) {
+		this.numberOfReserverenCarNow = numberOfReserverenCarNow;
 	}
 
 }

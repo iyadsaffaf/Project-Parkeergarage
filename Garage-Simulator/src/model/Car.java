@@ -106,6 +106,8 @@ public abstract class Car {
      * @return de Color van deze Car.
      */
     public abstract Color getColor();
+    public abstract String getType();
+
     
     
     
