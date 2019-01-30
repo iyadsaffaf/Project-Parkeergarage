@@ -17,7 +17,9 @@ import model.SimulatorModel;
 public class Winst extends LineChart <Number,Number>{
 	final static NumberAxis xAxis = new NumberAxis();
 	final static NumberAxis yAxis= new NumberAxis();
+	private SimulatorModel model;
 	public Winst(SimulatorModel model) {
+		
 		super(xAxis,yAxis);
 //	   xAxis = new NumberAxis();
 //       yAxis = new NumberAxis();
@@ -53,7 +55,7 @@ public class Winst extends LineChart <Number,Number>{
 			public void handle(long now) {
 				if (now - lastUpdate >= 500_000_000) {
                    lastUpdate = now ;
-				
+				System.out.println(model.getTotalProfit());
 				
 				
 				   Random d = new Random();

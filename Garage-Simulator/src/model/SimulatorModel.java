@@ -42,6 +42,8 @@ public class SimulatorModel {
 	private int speedOfSumlator;
 	private boolean isrunning;
 
+	private double totalProfit;
+    private ArrayList<Double> profitPerDay ;
 	public SimulatorModel() {
 		super();
 		this.numberOfFloors = 3;
@@ -74,7 +76,10 @@ public class SimulatorModel {
 		this.weekDayReserverenArrivals = 100;
 		this.weekendReserverenArrivals = 0;
 		this.speedOfSumlator=500000000;
-
+		this.totalProfit=0;
+	    this.profitPerDay = new ArrayList<>();
+	    
+	    
 	}
 
 	public int getNumberOfFloors() {
@@ -315,6 +320,9 @@ public class SimulatorModel {
 			hour++;
 		}
 		while (hour > 23) {
+			getProfitPerDay().add(getTotalProfit());
+			System.out.println(getProfitPerDay());
+			//setTotalProfit(0);
 			hour -= 24;
 			day++;
 		}
@@ -384,6 +392,20 @@ public class SimulatorModel {
 	public void setIsrunning(boolean isrunning) {
 		this.isrunning = isrunning;
 	}
-	
+	public double getTotalProfit() {
+		return totalProfit;
+	}
+
+	public void setTotalProfit(double totalProfit) {
+		this.totalProfit = totalProfit;
+	}
+
+	public ArrayList<Double> getProfitPerDay() {
+		return profitPerDay;
+	}
+
+	public void setProfitPerDay(ArrayList<Double> profitPerHour) {
+		this.profitPerDay = profitPerHour;
+	}
 
 }

@@ -167,13 +167,16 @@ public class SimulatorView extends Canvas {
 		addArrivingCars(numberOfCars, PASS);
 		numberOfCars = getNumberOfCars(model.getWeekDayReserverenArrivals(), model.getWeekendReserverenArrivals());
 		addArrivingCars(numberOfCars, RES);
+//		
 	}
 
 	private void carsEntering(CarQueue queue) {
 		int i = 0;
 		// Remove car from the front of the queue and assign to a parking space.
 		while (queue.carsInQueue() > 0 && model.getNumberOfOpenSpots() > 0 && i < model.getEnterSpeed()) {
+			
 			Car car = queue.removeCar();
+			
 			Location freeLocation = getFirstFreeLocation();
 			model.setCarAt(freeLocation, car);
 			i++;
@@ -209,6 +212,10 @@ public class SimulatorView extends Canvas {
 		// Let cars leave.
 		int i = 0;
 		while (model.getExitCarQueue().carsInQueue() > 0 && i < model.getExitSpeed()) {
+<<<<<<< HEAD
+=======
+			
+>>>>>>> branch 'master' of https://github.com/iyadsaffaf/Project-Parkeergarage
 			model.getExitCarQueue().removeCar();
 			i++;
 		}
@@ -232,6 +239,10 @@ public class SimulatorView extends Canvas {
 		case AD_HOC:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
+//				Car carx =model.getEntranceCarQueue().getCar();
+//				System.out.println(model.getTotalProfit() + carx.profitCar()+model.getExitCarQueue().getCar().getStayMinutes()+"Ggg");
+				model.setTotalProfit(model.getTotalProfit() + numberOfCars);
+				
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 			}
 			break;
