@@ -18,6 +18,7 @@ public class Queu extends BarChart<Number, String> {
 	 * 
 	 * @author  		Irena Nowak 
 	 * @version		29 januari 2019
+
 	 */
 	
 	private CarQueue queue;
@@ -45,13 +46,9 @@ public class Queu extends BarChart<Number, String> {
         updateGrafiek();
     
         
-    // AnimationTimer om de BarChart up-to-date te houden
+    // AnimationTimer maakt een nieuwe timer aan zodat we actuele data kunnen weergeven
     AnimationTimer queueTimer = new AnimationTimer() {
         private long lastUpdate = 0 ;
-
-        /*
-         * 
-         */
         
 		@Override
 		public void handle(long now) {
@@ -91,6 +88,6 @@ queueTimer.start();
 		       
 		        getData().add(series);
 		        setLegendSide(Side.LEFT);
-		        //System.out.println(passQueue.carsInQueue());
+
     }
 }
