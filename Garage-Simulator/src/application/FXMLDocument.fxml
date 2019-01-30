@@ -67,7 +67,7 @@
                         <Image url="@../images/play.png" />
                      </image>
                   </ImageView>
-                  <Slider fx:id="sildeSpeed" blockIncrement="5.0" layoutX="75.0" layoutY="187.0" min="1.0" prefHeight="15.0" prefWidth="118.0" showTickMarks="true" value="100.0" />
+                  <Slider fx:id="sildeSpeed" blockIncrement="5.0" layoutX="75.0" layoutY="187.0" min="1.0" prefHeight="15.0" prefWidth="118.0" showTickMarks="true" snapToTicks="true" value="100.0" />
                </children>
             </Pane>
             <Button fx:id="buttonAutos" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="10.0" prefWidth="266.0" stylesheets="@../css/StyleSheet.css" text="Overzicht" textFill="WHITE">
