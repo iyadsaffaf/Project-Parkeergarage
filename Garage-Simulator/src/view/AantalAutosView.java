@@ -23,13 +23,6 @@ public class AantalAutosView extends PieChart {
 	public AantalAutosView(SimulatorModel model) {
 		super();
 		this.model = model;
-//			 pieChartData =
-//		             FXCollections.observableArrayList(
-//		             new PieChart.Data("Grapefruit", 13),
-//		             new PieChart.Data("Oranges", 25) , 
-//		             new PieChart.Data("Plums", 10),
-//		             new PieChart.Data("Pears", 22),
-//		             new PieChart.Data("Apples", 30));
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -47,23 +40,17 @@ public class AantalAutosView extends PieChart {
 								new PieChart.Data("Resereveren", model.getNumberOfReserverenCarNow()));
 						setAnimated(false);
 						setData(pieChartData);
-						setLabelsVisible(false);
+						setLabelsVisible(true);
 						setLegendSide(Side.LEFT);
 						setMaxHeight(350);
 						setStartAngle(90);
-
+						setLabelLineLength(10);
 					}
 				}
 			}
 		};
 		d.start();
-		try {
-			getStylesheets().add("StyleSheet.css");
-		}
 
-		catch (Exception ex) {
-			System.err.println("Cannot acquire stylesheet: " + ex.toString());
-		}
 	}
 
 }
