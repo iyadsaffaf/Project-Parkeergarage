@@ -118,9 +118,9 @@
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
-      <StackPane layoutX="268.0" layoutY="429.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="859.0">
+      <StackPane layoutX="268.0" layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="859.0">
          <children>
-            <Pane fx:id="paneReset" prefHeight="648.0" prefWidth="934.0">
+            <Pane fx:id="paneReset" prefHeight="309.0" prefWidth="859.0" visible="false">
                <children>
       				<TextField fx:id="exitSpeedField" layoutX="535.0" layoutY="132.0" />
                   <Text fx:id="exitSpeedText" layoutX="460.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Speed" />
