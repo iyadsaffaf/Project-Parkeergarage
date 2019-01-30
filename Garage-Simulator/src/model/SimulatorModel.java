@@ -324,6 +324,7 @@ public class SimulatorModel {
 			getProfitPerDay().add(getTotalProfit());
 			System.out.println(getProfitPerDay());
 			setTotalProfit(0);
+			
 			hour -= 24;
 			day++;
 		}
