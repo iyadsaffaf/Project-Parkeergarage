@@ -56,17 +56,17 @@ public class Winst extends LineChart <Number,Number>{
 			public void handle(long now) {
 				if (now - lastUpdate >= 500_000_000) {
                    lastUpdate = now ;
-				System.out.println(model.getTotalProfit());
-				
-				
-				   Random d = new Random();
-	         	    
+//				System.out.println(model.getTotalProfit());
+//				
+//				
+//				   Random d = new Random();
+//	         	    
 	          
-	            int x = d.nextInt(30);
-	            if(base < model.getHour()) {
-		    			series.getData().add(new XYChart.Data(base, model.getTotalProfit()));
-		    			base = model.getHour();
-	            }
+//	            int x = d.nextInt(30);
+//	            if(base < model.getHour()) {
+//		    			series.getData().add(new XYChart.Data(base, model.getTotalProfit()));
+//		    			base = model.getHour();
+//	            }
 //	            series.getData().add(new XYChart.Data(1, x));
 //	            series.getData().add(new XYChart.Data(2, x));
 //	            series.getData().add(new XYChart.Data(3, 15));
@@ -76,7 +76,7 @@ public class Winst extends LineChart <Number,Number>{
 //	            series.getData().add(new XYChart.Data(7, 22));
 //	            series.getData().add(new XYChart.Data(8, 45));
 //	            series.getData().add(new XYChart.Data(9, 43));
-	            getData().add(series);
+//	            getData().add(series);
 	            
 	            
 			}}
