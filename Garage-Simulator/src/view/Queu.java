@@ -16,7 +16,7 @@ public class Queu extends BarChart<Number, String> {
 	 * Class Queu - Laat een BarChart zien met daarin de data van alle wachtende auto's voor de parkeergarage
 	 * 
 	 * @author 		Irena Nowak
-	 * @version		29 januari 2019
+	 * @version		30 januari 2019
 	 */
 	
 	private CarQueue queue;
@@ -45,13 +45,9 @@ public class Queu extends BarChart<Number, String> {
         updateGrafiek();
     
         
-    // AnimationTimer om de BarChart up-to-date te houden
+    // AnimationTimer maakt een nieuwe timer aan zodat we actuele data kunnen weergeven
     AnimationTimer queueTimer = new AnimationTimer() {
         private long lastUpdate = 0 ;
-
-        /*
-         * 
-         */
         
 		@Override
 		public void handle(long now) {
