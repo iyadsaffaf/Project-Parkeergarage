@@ -68,7 +68,7 @@ queueTimer.start();
 	}
 	
 	/*
-	 * Deze methode wordt gebruikt om de BarChart up te daten
+	 * Deze methode wordt gebruikt om de BarChart up te daten met actuele data
 	 */
 	
 	private void updateGrafiek() {
@@ -79,6 +79,7 @@ queueTimer.start();
 		     	CarQueue passQueue = model.getEntrancePassQueue();
 		     	CarQueue exitQueue = model.getExitCarQueue();
 		     	CarQueue paymentQueue = model.getPaymentCarQueue();
+		        setAnimated(false);
 		        
 		        // Het toevoegen van data aan de BarChart              
 		        XYChart.Series series = new XYChart.Series();
