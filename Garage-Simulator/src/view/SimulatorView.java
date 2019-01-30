@@ -212,10 +212,7 @@ public class SimulatorView extends Canvas {
 		// Let cars leave.
 		int i = 0;
 		while (model.getExitCarQueue().carsInQueue() > 0 && i < model.getExitSpeed()) {
-<<<<<<< HEAD
-=======
-			
->>>>>>> branch 'master' of https://github.com/iyadsaffaf/Project-Parkeergarage
+
 			model.getExitCarQueue().removeCar();
 			i++;
 		}
