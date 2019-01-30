@@ -22,6 +22,6 @@ public class CarQueue {
     }
     
     public Car getCar() {
-    		return queue.element();
-    }
+		return queue.element();
+}
 }
