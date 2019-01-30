@@ -12,7 +12,7 @@ public abstract class Car {
     private boolean isPaying;
     private boolean badAtParking = false;
     private boolean hasToPay;
-	double payPrice = 1;
+	double payPrice = 0.03;
 	double profitCar=0;
 
     /**

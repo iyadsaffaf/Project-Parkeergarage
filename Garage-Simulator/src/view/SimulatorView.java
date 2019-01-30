@@ -201,6 +201,9 @@ public class SimulatorView extends Canvas {
 		// Let cars pay.
 		int i = 0;
 		while (model.getPaymentCarQueue().carsInQueue() > 0 && i < model.getPaymentSpeed()) {
+			
+			model.setTotalProfit(model.getTotalProfit() +model.getPaymentCarQueue().getCar().profitCar());
+
 			Car car = model.getPaymentCarQueue().removeCar();
 			// TODO Handle payment.
 			carLeavesSpot(car);
@@ -237,7 +240,6 @@ public class SimulatorView extends Canvas {
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
 //				
-				model.setTotalProfit(model.getTotalProfit() + numberOfCars*60);
 				
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 			}
