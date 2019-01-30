@@ -26,7 +26,7 @@ public class AantalAutosView extends PieChart {
 //			 pieChartData =
 //		             FXCollections.observableArrayList(
 //		             new PieChart.Data("Grapefruit", 13),
-//		             new PieChart.Data("Oranges", 25),
+//		             new PieChart.Data("Oranges", 25) ,
 //		             new PieChart.Data("Plums", 10),
 //		             new PieChart.Data("Pears", 22),
 //		             new PieChart.Data("Apples", 30));
@@ -60,8 +60,9 @@ public class AantalAutosView extends PieChart {
 		d.start();
 	      try
 	      {
-	         getStylesheets().add("StyleSheet.css");
+	         getStylesheets().add("StyleSheet.css");   
 	      }
+	      
 	      catch (Exception ex)
 	      {
 	         System.err.println("Cannot acquire stylesheet: " + ex.toString());

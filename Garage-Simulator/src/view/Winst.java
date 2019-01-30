@@ -22,7 +22,7 @@ public class Winst extends LineChart <Number,Number>{
 //       yAxis = new NumberAxis();
         xAxis.setLabel("Number of Month");
         //creating the chart
-//        final LineChart<Number,Number> lineChart = 
+//        final LineChart<Number,Number> lineChart= 
 //                new LineChart<Number,Number>(xAxis,yAxis);
                 
         //defining a series
