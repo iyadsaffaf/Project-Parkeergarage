@@ -19,188 +19,182 @@ public class SimulatorLogic implements Runnable {
 	private CarViewModel c;
 	private ParkPanelView p;
 	private static final String AD_HOC = SimulatorModel.AD_HOC;
-	private static final String PASS =SimulatorModel.PASS;
+	private static final String PASS = SimulatorModel.PASS;
 	private static final String RESV = SimulatorModel.RESV;
 	private Thread t = new Thread(this);
 	private AutoInGaragePanelVIew autoInGaragePanelVIew;
-   
-	public SimulatorLogic(SimulatorModel d,CarViewModel c,ParkPanelView p,AutoInGaragePanelVIew autoInGaragePanelVIew) {
+
+	public SimulatorLogic(SimulatorModel d, CarViewModel c, ParkPanelView p,
+			AutoInGaragePanelVIew autoInGaragePanelVIew) {
 		super();
 		this.d = d;
-		this.c=c;
-		this.p=p;
-		this.autoInGaragePanelVIew= autoInGaragePanelVIew;
+		this.c = c;
+		this.p = p;
+		this.autoInGaragePanelVIew = autoInGaragePanelVIew;
 	}
 
 	public void run() {
-        for (int i = 0; i < 10000; i++) {
-            tick();
-        }
-    }
+		for (int i = 0; i < 10000; i++) {
+			tick();
+		}
+	}
 
-    private void tick() {
-    	advanceTime();
-    	handleExit();
-    	updateViews();
-    	// Pause.
-    	if(d.isIsrunning()) {
-        try {
-            Thread.sleep(d.getTickPause());
-        } catch (InterruptedException e) {
-            e.printStackTrace();        }
-    	
-        }
-    	
-    
-    	handleEntrance();
-    }
+	private void tick() {
+		advanceTime();
+		handleExit();
+		updateViews();
+		// Pause.
+		if (d.isIsrunning()) {
+			try {
+				Thread.sleep(d.getTickPause());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 
-    private void advanceTime(){
-        // Advance the time by one minute.
-        d.setMinute(d.getMinute()+1);
-        while (d.getMinute() > 59) {
-    			d.getProfitPerHour().add(d.getTotalProfit());
-    			System.out.println(d.getProfitPerHour());
-    			d.setTotalProfit(0);
-            d.setMinute(d.getMinute()-60);
-            d.setHour(d.getHour()+1);
-        }
-        while (d.getHour() > 23) {
-            d.setHour(d.getHour()-24);
-            d.setDay(d.getDay()+1);
-        }
-        while (d.getDay() > 6) {
-        		d.setDay(d.getDay()-7);
-        }
+		}
 
-    }
+		handleEntrance();
+	}
 
-    private void handleEntrance(){
-    	carsArriving();
-    	carsEntering(d.getEntrancePassQueue());
-    	carsEntering(d.getEntranceCarQueue());  	
-    }
-    
-    private void handleExit(){
-        carsReadyToLeave();
-        carsPaying();
-        carsLeaving();
-    }
-    
-    private void updateViews(){
-    	c.tick();
-        // Update the car park view.
-        p.updateView();	
-        //autoInGaragePanelVIew.update(d.getAdHocCarnumber(), d.getPassCarnumber());
-    }
-    
-    private void carsArriving(){
-    		int numberOfCars=getNumberOfCars(d.getWeekDayArrivals(), d.getWeekendArrivals());
-        addArrivingCars(numberOfCars, SimulatorModel.getAdHoc());    	
-        
-    		numberOfCars=getNumberOfCars(d.getWeekDayPassArrivals(), d.getWeekendPassArrivals());
-        addArrivingCars(numberOfCars, SimulatorModel.getPass());   
-        
-        numberOfCars=getNumberOfCars(d.getWeekDayResvArrivals(), d.getWeekendResvArrivals());
-        addArrivingCars(numberOfCars, SimulatorModel.getResv()); 
-        
-    }
+	private void advanceTime() {
+		// Advance the time by one minute.
+		d.setMinute(d.getMinute() + 1);
+		while (d.getMinute() > 59) {
+			d.getProfitPerHour().add(d.getTotalProfit());
+			System.out.println(d.getProfitPerHour());
+			d.setTotalProfit(0);
+			d.setMinute(d.getMinute() - 60);
+			d.setHour(d.getHour() + 1);
+		}
+		while (d.getHour() > 23) {
+			d.setHour(d.getHour() - 24);
+			d.setDay(d.getDay() + 1);
+		}
+		while (d.getDay() > 6) {
+			d.setDay(d.getDay() - 7);
+		}
 
-    private void carsEntering(CarQueue queue){
-        int i=0;
-        // Remove car from the front of the queue and assign to a parking space.
-    	while (queue.carsInQueue()>0 && 
-    			c.getNumberOfOpenSpots()>0 && 
-    			i<d.getEnterSpeed()) {
-            Car car = queue.removeCar();
-            Location freeLocation = c.getFirstFreeLocation();
-            c.setCarAt(freeLocation, car);
-            i++;
-        }
-    }
-    
-    private void carsReadyToLeave(){
-        // Add leaving cars to the payment queue.
-        Car car = c.getFirstLeavingCar();
-        while (car!=null) {
-        	if (car.getHasToPay()){
-	            car.setIsPaying(true);
-	            d.getPaymentCarQueue().addCar(car);
-        	}
-        	else {
-        		carLeavesSpot(car);
-        	}
-            car = c.getFirstLeavingCar();
-        }
-    }
+	}
 
-    private void carsPaying(){
-        // Let cars pay.
-    	int i=0;
-    	while (d.getPaymentCarQueue().carsInQueue()>0 && i < d.getPaymentSpeed()){
-            Car car = d.getPaymentCarQueue().removeCar();
-            // TODO Handle payment.
-            carLeavesSpot(car);
-            i++;
-    	}
-    }
-    
-    private void carsLeaving(){
-        // Let cars leave.
-    		int i=0;
-    		while (d.getExitCarQueue().carsInQueue()>0 && i < d.getExitSpeed()){
-    			Car car = d.getExitCarQueue().getCar();
-    			d.setTotalProfit(d.getTotalProfit() + car.profitCar());
-    			//System.out.println((int)d.getTotalProfit());
-    			d.getExitCarQueue().removeCar();
-            i++;
-    		}
-    }
-    
-    private int getNumberOfCars(int weekDay, int weekend){
-        Random random = new Random();
+	private void handleEntrance() {
+		carsArriving();
+		carsEntering(d.getEntrancePassQueue());
+		carsEntering(d.getEntranceCarQueue());
+	}
 
-        // Get the average number of cars that arrive per hour.
-        int averageNumberOfCarsPerHour = d.getDay() < 5
-                ? weekDay
-                : weekend;
+	private void handleExit() {
+		carsReadyToLeave();
+		carsPaying();
+		carsLeaving();
+	}
 
-        // Calculate the number of cars that arrive this minute.
-        double standardDeviation = averageNumberOfCarsPerHour * 0.3;
-        double numberOfCarsPerHour = averageNumberOfCarsPerHour + random.nextGaussian() * standardDeviation;
-        return (int)Math.round(numberOfCarsPerHour / 60);	
-    }
-    
-    private void addArrivingCars(int numberOfCars, String type){
-        // Add the cars to the back of the queue.
-    	switch(type) {
-    	case AD_HOC: 
-            for (int i = 0; i < numberOfCars; i++) {
-            	d.getEntranceCarQueue().addCar(new AdHocCar());
-            	d.setAdHocCarnumber(d.getAdHocCarnumber()+1);
-            }
-            break;
-    	case PASS:
-            for (int i = 0; i < numberOfCars; i++) {
-            	d.getEntrancePassQueue().addCar(new ParkingPassCar());
-            	d.setPassCarnumber(d.getPassCarnumber()+1);
-            }
-            break;	            
-    	case RESV:
-    			for (int i = 0; i < numberOfCars; i++) {
-            	d.getEntrancePassQueue().addCar(new Reserveren());
-            	d.setPassCarnumber(d.getPassCarnumber()+1);
-            }
-            break;
-    			
-    		}
-    }
-    
-    private void carLeavesSpot(Car car){
-    		c.removeCarAt(car.getLocation());
-        d.getExitCarQueue().addCar(car);
-    }
-    
-    
-	
+	private void updateViews() {
+		c.tick();
+		// Update the car park view.
+		p.updateView();
+		// autoInGaragePanelVIew.update(d.getAdHocCarnumber(), d.getPassCarnumber());
+	}
+
+	private void carsArriving() {
+		int numberOfCars = getNumberOfCars(d.getWeekDayArrivals(), d.getWeekendArrivals());
+		addArrivingCars(numberOfCars, SimulatorModel.getAdHoc());
+
+		numberOfCars = getNumberOfCars(d.getWeekDayPassArrivals(), d.getWeekendPassArrivals());
+		addArrivingCars(numberOfCars, SimulatorModel.getPass());
+
+		numberOfCars = getNumberOfCars(d.getWeekDayResvArrivals(), d.getWeekendResvArrivals());
+		addArrivingCars(numberOfCars, SimulatorModel.getResv());
+
+	}
+
+	private void carsEntering(CarQueue queue) {
+		int i = 0;
+		// Remove car from the front of the queue and assign to a parking space.
+		while (queue.carsInQueue() > 0 && c.getNumberOfOpenSpots() > 0 && i < d.getEnterSpeed()) {
+			Car car = queue.removeCar();
+			Location freeLocation = c.getFirstFreeLocation();
+			c.setCarAt(freeLocation, car);
+			i++;
+		}
+	}
+
+	private void carsReadyToLeave() {
+		// Add leaving cars to the payment queue.
+		Car car = c.getFirstLeavingCar();
+		while (car != null) {
+			if (car.getHasToPay()) {
+				car.setIsPaying(true);
+				d.getPaymentCarQueue().addCar(car);
+			} else {
+				carLeavesSpot(car);
+			}
+			car = c.getFirstLeavingCar();
+		}
+	}
+
+	private void carsPaying() {
+		// Let cars pay.
+		int i = 0;
+		while (d.getPaymentCarQueue().carsInQueue() > 0 && i < d.getPaymentSpeed()) {
+			Car car = d.getPaymentCarQueue().removeCar();
+			// TODO Handle payment.
+			carLeavesSpot(car);
+			i++;
+		}
+	}
+
+	private void carsLeaving() {
+		// Let cars leave.
+		int i = 0;
+		while (d.getExitCarQueue().carsInQueue() > 0 && i < d.getExitSpeed()) {
+			Car car = d.getExitCarQueue().getCar();
+			d.setTotalProfit(d.getTotalProfit() + car.profitCar());
+			// System.out.println((int)d.getTotalProfit());
+			d.getExitCarQueue().removeCar();
+			i++;
+		}
+	}
+
+	private int getNumberOfCars(int weekDay, int weekend) {
+		Random random = new Random();
+
+		// Get the average number of cars that arrive per hour.
+		int averageNumberOfCarsPerHour = d.getDay() < 5 ? weekDay : weekend;
+
+		// Calculate the number of cars that arrive this minute.
+		double standardDeviation = averageNumberOfCarsPerHour * 0.3;
+		double numberOfCarsPerHour = averageNumberOfCarsPerHour + random.nextGaussian() * standardDeviation;
+		return (int) Math.round(numberOfCarsPerHour / 60);
+	}
+
+	private void addArrivingCars(int numberOfCars, String type) {
+		// Add the cars to the back of the queue.
+		switch (type) {
+		case AD_HOC:
+			for (int i = 0; i < numberOfCars; i++) {
+				d.getEntranceCarQueue().addCar(new AdHocCar());
+				d.setAdHocCarnumber(d.getAdHocCarnumber() + 1);
+			}
+			break;
+		case PASS:
+			for (int i = 0; i < numberOfCars; i++) {
+				d.getEntrancePassQueue().addCar(new ParkingPassCar());
+				d.setPassCarnumber(d.getPassCarnumber() + 1);
+			}
+			break;
+		case RESV:
+			for (int i = 0; i < numberOfCars; i++) {
+				d.getEntrancePassQueue().addCar(new Reserveren());
+				d.setPassCarnumber(d.getPassCarnumber() + 1);
+			}
+			break;
+
+		}
+	}
+
+	private void carLeavesSpot(Car car) {
+		c.removeCarAt(car.getLocation());
+		d.getExitCarQueue().addCar(car);
+	}
+
 }
