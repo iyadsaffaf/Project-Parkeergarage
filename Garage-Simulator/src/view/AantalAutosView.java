@@ -39,10 +39,10 @@ public class AantalAutosView extends PieChart {
 			public void handle(long now) {
 				if (now - lastUpdate >= 1000_000_000) {
 					lastUpdate = now;
+                
+					 if(model.isIsrunning()) {
 
-					Random d = new Random();
-
-					int x = d.nextInt(30);
+					     
 
 					pieChartData = FXCollections.observableArrayList(new PieChart.Data("AdHoc", model.getNumberOfAdHocCar()),
 							new PieChart.Data("Pass", model.getNumberOfParkingPassCar()), new PieChart.Data("Resereveren", model.getNumberOfReserverenCar())
@@ -51,7 +51,7 @@ public class AantalAutosView extends PieChart {
 					setData(pieChartData);
 
 				}
-			}
+			}}
 		};
 		d.start();
 	}

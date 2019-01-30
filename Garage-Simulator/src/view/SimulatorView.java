@@ -10,11 +10,9 @@ import javafx.scene.canvas.Canvas;
  *
  */
 
-
 import java.awt.Dimension;
 
 import java.util.Random;
-
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
@@ -28,18 +26,19 @@ import model.ParkingPassCar;
 import model.ReserverenCar;
 import model.SimulatorModel;
 
-public class SimulatorView extends Canvas{
+public class SimulatorView extends Canvas {
 	private GraphicsContext gc;
 	private SimulatorModel model;
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
 	private static final String RES = "3";
+
 	/**
 	 * 
 	 */
 	public SimulatorView(SimulatorModel model) {
 		this.model = model;
-		setHeight(356.0);
+		setHeight(360.0);
 		setWidth(841.0);
 
 		gc = getGraphicsContext2D();
@@ -48,10 +47,12 @@ public class SimulatorView extends Canvas{
 
 			@Override
 			public void handle(long now) {
-				if (now - lastUpdate >= 5_000_000) {
+				if (now - lastUpdate >=  model.getSpeedOfSumlator()) {
 					lastUpdate = now;
+					if (model.isIsrunning()) {
+						tickBig();
 
-					tickBig();
+					}
 
 				}
 			}
@@ -102,15 +103,11 @@ public class SimulatorView extends Canvas{
 		}
 	}
 
-
 	public Dimension getPreferredSize() {
 		return new Dimension(800, 500);
 	}
 
-	
-
 	public void updateView() {
-		
 
 		for (int floor = 0; floor < model.getNumberOfFloors(); floor++) {
 			for (int row = 0; row < model.getNumberOfRows(); row++) {
@@ -136,9 +133,7 @@ public class SimulatorView extends Canvas{
 				+ (location.getRow() % 2) * 20, 60 + location.getPlace() * 10, 20 - 1, 10 - 1); // TODO use dynamic size
 																								// or constants
 
-
 	}
-	
 
 	private void tickBig() {
 		model.advanceTime();
@@ -170,7 +165,7 @@ public class SimulatorView extends Canvas{
 		addArrivingCars(numberOfCars, AD_HOC);
 		numberOfCars = getNumberOfCars(model.getWeekDayPassArrivals(), model.getWeekendPassArrivals());
 		addArrivingCars(numberOfCars, PASS);
-		numberOfCars=getNumberOfCars(model.getWeekDayReserverenArrivals(), model.getWeekendReserverenArrivals());
+		numberOfCars = getNumberOfCars(model.getWeekDayReserverenArrivals(), model.getWeekendReserverenArrivals());
 		addArrivingCars(numberOfCars, RES);
 	}
 
@@ -237,20 +232,20 @@ public class SimulatorView extends Canvas{
 		case AD_HOC:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
-				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar()+1);
+				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 			}
 			break;
 		case PASS:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ParkingPassCar());
-				model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar()+1);
+				model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar() + 1);
 			}
 			break;
-			
+
 		case RES:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntrancePassQueue().addCar(new ReserverenCar());
-			 model.setNumberOfReserverenCar(model.getNumberOfReserverenCar()+1);
+				model.setNumberOfReserverenCar(model.getNumberOfReserverenCar() + 1);
 			}
 			break;
 		}
@@ -259,7 +254,7 @@ public class SimulatorView extends Canvas{
 	private void carLeavesSpot(Car car) {
 		model.removeCarAt(car.getLocation());
 		model.getExitCarQueue().addCar(car);
-		
+
 	}
 
 }

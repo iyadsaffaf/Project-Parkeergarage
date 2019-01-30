@@ -39,6 +39,8 @@ public class SimulatorModel {
 	private int numberOfReserverenCar;
 	private int weekDayReserverenArrivals;
 	private int weekendReserverenArrivals;
+	private int speedOfSumlator;
+	private boolean isrunning;
 
 	public SimulatorModel() {
 		super();
@@ -71,6 +73,7 @@ public class SimulatorModel {
 		this.numberOfParkingPassCar = 0;
 		this.weekDayReserverenArrivals = 100;
 		this.weekendReserverenArrivals = 0;
+		this.speedOfSumlator=500000000;
 
 	}
 
@@ -364,6 +367,22 @@ public class SimulatorModel {
 
 	public static String getRes() {
 		return RES;
+	}
+
+	public int getSpeedOfSumlator() {
+		return speedOfSumlator;
+	}
+
+	public void setSpeedOfSumlator(int speedOfSumlator) {
+		this.speedOfSumlator = speedOfSumlator;
+	}
+
+	public boolean isIsrunning() {
+		return isrunning;
+	}
+
+	public void setIsrunning(boolean isrunning) {
+		this.isrunning = isrunning;
 	}
 	
 
