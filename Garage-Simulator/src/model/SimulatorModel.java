@@ -323,7 +323,7 @@ public class SimulatorModel {
 		while (hour > 23) {
 			getProfitPerDay().add(getTotalProfit());
 			System.out.println(getProfitPerDay());
-			//setTotalProfit(0);
+			setTotalProfit(0);
 			hour -= 24;
 			day++;
 		}

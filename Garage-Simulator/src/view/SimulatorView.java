@@ -236,9 +236,8 @@ public class SimulatorView extends Canvas {
 		case AD_HOC:
 			for (int i = 0; i < numberOfCars; i++) {
 				model.getEntranceCarQueue().addCar(new AdHocCar());
-//				Car carx =model.getEntranceCarQueue().getCar();
-//				System.out.println(model.getTotalProfit() + carx.profitCar()+model.getExitCarQueue().getCar().getStayMinutes()+"Ggg");
-				model.setTotalProfit(model.getTotalProfit() + numberOfCars);
+//				
+				model.setTotalProfit(model.getTotalProfit() + numberOfCars*60);
 				
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 			}
