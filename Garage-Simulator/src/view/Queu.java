@@ -16,7 +16,7 @@ public class Queu extends BarChart<Number, String> {
 	/*
 	 * Class Queu - Laat een BarChart zien met daarin de data van alle wachtende auto's voor de parkeergarage
 	 * 
-	 * @author  		Irena Nowak
+	 * @author  		Irena Nowak 
 	 * @version		29 januari 2019
 	 */
 	
