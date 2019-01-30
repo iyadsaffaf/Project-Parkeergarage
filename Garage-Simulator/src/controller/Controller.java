@@ -164,7 +164,7 @@ public class Controller implements Initializable {
 		Autos = new AantalAutosView(model);
 		paneAutos.getChildren().add(Autos);
 
-		winst = new Winst();
+		winst = new Winst(model);
 		paneWinst.getChildren().add(winst);
 
 		reseveren = new Reserveren();
