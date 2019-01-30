@@ -30,14 +30,14 @@ public class AantalAutosView extends PieChart {
 //		             new PieChart.Data("Pears", 22),
 //		             new PieChart.Data("Apples", 30));
 
-		setTitle("Autou's in de garage");
+		setTitle("Auto's in de garage");
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
 
 			@Override
 			public void handle(long now) {
-				if (now - lastUpdate >= 1000_000_000) {
+				if (now - lastUpdate >= 1000_000) {
 					lastUpdate = now;
                 
 					 if(model.isIsrunning()) {
@@ -55,4 +55,5 @@ public class AantalAutosView extends PieChart {
 		};
 		d.start();
 	}
+	
 }

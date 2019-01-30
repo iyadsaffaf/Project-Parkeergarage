@@ -24,7 +24,7 @@ public abstract class Car {
     public Car() {}
 
     /**
-     * @return de Location van deze Car.
+     * @return de Location van deze Car .
      */
     public Location getLocation() {
         return location;
