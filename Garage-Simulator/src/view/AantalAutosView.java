@@ -35,17 +35,18 @@ public class AantalAutosView extends PieChart {
 					if (model.isIsrunning()) {
 
 						pieChartData = FXCollections.observableArrayList(
-								new PieChart.Data("AdHoc  (" + model.getNumberOfAdHocCarNow() + ")",
+								new PieChart.Data("Standaard  (" + model.getNumberOfAdHocCarNow() + ")",
 										model.getNumberOfAdHocCarNow()),
-								new PieChart.Data("Pass  (" + model.getNumberOfParkingPassCarNow() + ")",
+								new PieChart.Data("Abonnement  (" + model.getNumberOfParkingPassCarNow() + ")",
 										model.getNumberOfParkingPassCarNow()),
-								new PieChart.Data("Resereveren  (" + model.getNumberOfReserverenCarNow() + ")",
+								new PieChart.Data("Reservatie  (" + model.getNumberOfReserverenCarNow() + ")",
 										model.getNumberOfReserverenCarNow()));
+						setTitle("Aantal gereserveerde plaatsen per dag");
 						setAnimated(false);
 						setData(pieChartData);
 						setLabelsVisible(false);
 						setLegendSide(Side.LEFT);
-						setMaxHeight(350);
+						setMaxHeight(380);
 						setStartAngle(90);
 						setLabelLineLength(10);
 					}

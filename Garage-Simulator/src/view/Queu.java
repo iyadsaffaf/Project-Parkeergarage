@@ -36,8 +36,8 @@ public class Queu extends BarChart<String,Number > {
 		this.model = model;
 
 		// Maakt de algemene gegevens van BarChart aan		
-        xAxis.setLabel("Wachtrij");  
-        yAxis.setLabel("Garage");   
+        xAxis.setLabel("Locatie");  
+        yAxis.setLabel("Auto('s)");   
         
         updateGrafiek();
     
@@ -76,14 +76,15 @@ queueTimer.start();
 		        
 		        // Het toevoegen van data aan de BarChart              
 		        XYChart.Series series = new XYChart.Series();
-		        series.setName("Car Queues");       
-		        series.getData().add(new XYChart.Data("Entrance Car Queue",carQueue.carsInQueue()));
-		        series.getData().add(new XYChart.Data( "Entrance Pass Queue",passQueue.carsInQueue()));
-		        series.getData().add(new XYChart.Data("Exit Car Queue",exitQueue.carsInQueue()));
-		        series.getData().add(new XYChart.Data("Payment Car Queue" ,paymentQueue.carsInQueue()));
+		        series.setName("Wachtrij(en)");       
+		        series.getData().add(new XYChart.Data("Ingang",carQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data( "Abonnement",passQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data("Uitgang",exitQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data("Betalend" ,paymentQueue.carsInQueue()));
 		       
 		        getData().add(series);
+		        setTitle("Hoeveelheid wachtende auto's");
 		        setLegendSide(Side.LEFT);
-
+		        setMaxHeight(380);
     }
 }

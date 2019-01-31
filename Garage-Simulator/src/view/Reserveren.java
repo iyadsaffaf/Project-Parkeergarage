@@ -16,8 +16,8 @@ public class Reserveren extends AreaChart<Number, Number> {
 	private SimulatorModel model;
 	final static NumberAxis xAxis = new NumberAxis(1, 31, 1);
 	final static NumberAxis yAxis = new NumberAxis();
-	private XYChart.Series seriesApril;
-	private XYChart.Series oldseriesApril;
+	private XYChart.Series seriesDag;
+	private XYChart.Series oldseriesDag;
 
 	private int day = 0;
 	private int lastTotal = 0;
@@ -26,14 +26,16 @@ public class Reserveren extends AreaChart<Number, Number> {
 		super(xAxis, yAxis);
 		this.model = model;
 
-		seriesApril = new XYChart.Series();
+		seriesDag = new XYChart.Series();
 
-		setTitle("Temperature Monitoring (in Degrees C)");
-		seriesApril.getData().add(new XYChart.Data(0, 0));
+		setTitle("Aantal gereserveerde plaatsen per dag");
+		yAxis.setLabel("Plaats(en)");
+		xAxis.setLabel("Dag");
+		seriesDag.getData().add(new XYChart.Data(0, 0));
 
-		seriesApril.setName("April");
+		seriesDag.setName("Dag");
 		setLegendSide(Side.LEFT);
-		setMaxHeight(350);
+		setMaxHeight(380);
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -57,15 +59,15 @@ public class Reserveren extends AreaChart<Number, Number> {
 		if (model.getDay() > day) {
 			try {
 
-				seriesApril.getData()
+				seriesDag.getData()
 						.add(new XYChart.Data(model.getDay(), model.getNumberOfReserverenCar() - lastTotal));
 
 				day++;
 				lastTotal = model.getNumberOfReserverenCar();
-				if (oldseriesApril != seriesApril) {
+				if (oldseriesDag != seriesDag) {
 
-					getData().add(seriesApril);
-					oldseriesApril = seriesApril;
+					getData().add(seriesDag);
+					oldseriesDag = seriesDag;
 
 				}
 

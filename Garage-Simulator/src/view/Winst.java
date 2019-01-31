@@ -20,7 +20,8 @@ public class Winst extends LineChart<Number, Number> {
 		super(xAxis, yAxis);
 		this.model = model;
 
-		xAxis.setLabel("Number of Month");
+		xAxis.setLabel("Dag");
+		yAxis.setLabel("Euro's");
 
 		// defining a series
 		series = new XYChart.Series();
@@ -29,8 +30,9 @@ public class Winst extends LineChart<Number, Number> {
 		series.getData().add(new XYChart.Data(0, 0));
 
 //		getData().add(series);
+		setTitle("Omzet per dag");
 		setLegendSide(Side.LEFT);
-		setMaxHeight(350);
+		setMaxHeight(380);
 		setAnimated(false);
 
 		AnimationTimer d = new AnimationTimer() {
