@@ -31,7 +31,7 @@ public class Winst extends LineChart<Number, Number> {
 
 //		getData().add(series);
 		setTitle("Omzet per dag");
-		setLegendSide(Side.LEFT);
+		setLegendVisible(false);
 		setMaxHeight(380);
 		setAnimated(false);
 

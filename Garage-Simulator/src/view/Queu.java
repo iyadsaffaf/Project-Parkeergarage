@@ -84,7 +84,7 @@ queueTimer.start();
 		       
 		        getData().add(series);
 		        setTitle("Hoeveelheid wachtende auto's");
-		        setLegendSide(Side.LEFT);
+		        setLegendVisible(false);
 		        setMaxHeight(380);
     }
 }

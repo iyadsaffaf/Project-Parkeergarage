@@ -34,7 +34,7 @@ public class Reserveren extends AreaChart<Number, Number> {
 		seriesDag.getData().add(new XYChart.Data(0, 0));
 
 		seriesDag.setName("Dag");
-		setLegendSide(Side.LEFT);
+		setLegendVisible(false);
 		setMaxHeight(380);
 
 		AnimationTimer d = new AnimationTimer() {
