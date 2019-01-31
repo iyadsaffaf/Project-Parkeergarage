@@ -184,9 +184,9 @@ public class Controller implements Initializable {
 
 			}
 		});
-		// acties voor knop overzicht 
+		// acties voor knop overzicht
 		buttonAutos.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			// zet de pane van overzicht op visable en de rest op verborgen 
+			// zet de pane van overzicht op visable en de rest op verborgen
 			paneAutos.setVisible(true);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
@@ -201,8 +201,8 @@ public class Controller implements Initializable {
 			buttonReset.setStyle(inActive);
 
 		});
-		
-		// acties voor knop omzet 
+
+		// acties voor knop omzet
 		buttonWinst.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			// zet de pane van omzet op visable en de rest op verborgen
 			paneAutos.setVisible(false);
@@ -237,10 +237,10 @@ public class Controller implements Initializable {
 			buttonReset.setStyle(inActive);
 
 		});
-		
+
 		// acties voor knop Reserveren
 		buttonReserveren.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			//zet de pane van Reserveren op visable en de rest op verborgen
+			// zet de pane van Reserveren op visable en de rest op verborgen
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
@@ -255,10 +255,10 @@ public class Controller implements Initializable {
 			buttonReset.setStyle(inActive);
 
 		});
-		
-		// acties voor Instellingen 
+
+		// acties voor Instellingen
 		buttonReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			//zet de pane van Reserveren op visable en de rest op verborgen
+			// zet de pane van Reserveren op visable en de rest op verborgen
 			paneAutos.setVisible(false);
 			paneQueu.setVisible(false);
 			paneWinst.setVisible(false);
@@ -272,7 +272,7 @@ public class Controller implements Initializable {
 			buttonReserveren.setStyle(inActive);
 			buttonReset.setStyle(active);
 
-			//Zet de waardes in de TextFields van instellingen 
+			// Zet de waardes in de TextFields van instellingen
 			weekdayArrivalField.setText(String.valueOf(model.getWeekDayArrivals()));
 			weekendArrivalField.setText(String.valueOf(model.getWeekendArrivals()));
 			weekdayMemberField.setText(String.valueOf(model.getWeekDayPassArrivals()));
@@ -308,7 +308,7 @@ public class Controller implements Initializable {
 			model.setPaymentSpeed(payment);
 			model.setExitSpeed(exit);
 		});
-		
+
 		// play and pause button
 		pressed = true;
 		buttonPlay.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -329,7 +329,8 @@ public class Controller implements Initializable {
 
 		});
 
-		// -----------------Invoer velden van instellingen controlleren of invoer numeric is---------------------
+		// -----------------Invoer velden van instellingen controlleren of invoer
+		// numeric is---------------------
 		// weekend arrival
 		weekendArrivalField.textProperty().addListener(new ChangeListener<String>() {
 			@Override

@@ -14,6 +14,7 @@ public class Winst extends LineChart<Number, Number> {
 	private int day = 0;
 	private SimulatorModel model;
 	private Series series;
+	private Series oldseries;
 
 	public Winst(SimulatorModel model) {
 		super(xAxis, yAxis);
@@ -27,9 +28,10 @@ public class Winst extends LineChart<Number, Number> {
 
 		series.getData().add(new XYChart.Data(0, 0));
 
-		getData().add(series);
+//		getData().add(series);
 		setLegendSide(Side.LEFT);
 		setMaxHeight(350);
+		setAnimated(false);
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -49,18 +51,21 @@ public class Winst extends LineChart<Number, Number> {
 	private synchronized void update() {
 		if (model.getDay() > day) {
 			try {
-			series.getData().add(new XYChart.Data(model.getDay(), model.getProfitPerDay().get(0)));
-			day++;
-			getData().add(series);
-			
-			}
-			catch(Exception d) {
+
+				series.getData().add(new XYChart.Data(model.getDay(), model.getProfitPerDay().get(day)));
+				day++;
+				if (oldseries != series) {
+
+					getData().add(series);
+					oldseries = series;
+
+				}
+			} catch (Exception d) {
 				System.out.print("double");
-				
-				
+
 			}
 		}
-		if (model.getDay()>6 ) {
+		if (model.getDay() > 6) {
 			day = 0;
 
 		}

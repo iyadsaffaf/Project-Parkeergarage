@@ -17,8 +17,10 @@ public class Reserveren extends AreaChart<Number, Number> {
 	final static NumberAxis xAxis = new NumberAxis(1, 31, 1);
 	final static NumberAxis yAxis = new NumberAxis();
 	private XYChart.Series seriesApril;
-	private int day=0;
-	private int lastTotal=0;
+	private XYChart.Series oldseriesApril;
+
+	private int day = 0;
+	private int lastTotal = 0;
 
 	public Reserveren(SimulatorModel model) {
 		super(xAxis, yAxis);
@@ -27,8 +29,7 @@ public class Reserveren extends AreaChart<Number, Number> {
 		seriesApril = new XYChart.Series();
 
 		setTitle("Temperature Monitoring (in Degrees C)");
-		seriesApril.getData().add(new XYChart.Data(0,0));
-
+		seriesApril.getData().add(new XYChart.Data(0, 0));
 
 		seriesApril.setName("April");
 		setLegendSide(Side.LEFT);
@@ -42,7 +43,7 @@ public class Reserveren extends AreaChart<Number, Number> {
 				if (now - lastUpdate >= 500_000_000) {
 					lastUpdate = now;
 
-                   update();
+					update();
 
 				}
 			}
@@ -52,29 +53,32 @@ public class Reserveren extends AreaChart<Number, Number> {
 
 	}
 
-
-	
 	private synchronized void update() {
 		if (model.getDay() > day) {
 			try {
-				
-				seriesApril.getData().add(new XYChart.Data(model.getDay(), model.getNumberOfReserverenCar()-lastTotal));
-				
-				getData().addAll(seriesApril);
-			day++;
-			lastTotal= model.getNumberOfReserverenCar();
-			}
-			catch(Exception d) {
+
+				seriesApril.getData()
+						.add(new XYChart.Data(model.getDay(), model.getNumberOfReserverenCar() - lastTotal));
+
+				day++;
+				lastTotal = model.getNumberOfReserverenCar();
+				if (oldseriesApril != seriesApril) {
+
+					getData().add(seriesApril);
+					oldseriesApril = seriesApril;
+
+				}
+
+			} catch (Exception d) {
 				System.out.print("double");
-				
-				
+
 			}
 		}
-		if (model.getDay()>6 ) {
+		if (model.getDay() > 6) {
 			day = 0;
 
 		}
 
 	}
-	
+
 }
