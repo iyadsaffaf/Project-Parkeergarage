@@ -62,6 +62,7 @@ public class Reserveren extends AreaChart<Number, Number> {
 				}
 			}
 		};
+		
 
 		d.start();
 

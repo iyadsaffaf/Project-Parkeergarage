@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 public class ReserverenCar extends Car {
 	private static final Color COLOR = Color.YELLOW;
 
+	
 	/**
 	 * Constructor for objects of class ReseverenCar
 	 */

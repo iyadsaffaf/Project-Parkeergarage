@@ -1,5 +1,6 @@
 package view;
 
+
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Side;
 import javafx.scene.chart.LineChart;
