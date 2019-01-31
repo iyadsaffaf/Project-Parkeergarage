@@ -10,7 +10,7 @@ public class SimulatorModel {
 	private int numberOfFloors;
 	private int numberOfRows;
 	private int numberOfPlaces;
-	private int numberOfOpenSpots;
+	private int numberOfOpenSpots; 
 	private Car[][][] cars;
 	private Dimension size;
 	private Image carParkImage;
