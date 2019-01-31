@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import model.Car;
 import model.SimulatorModel;
 import view.AantalAutosView;
 import view.Queu;
@@ -136,6 +137,12 @@ public class Controller implements Initializable {
 	private TextField weekdayArrivalField;
 
 	@FXML
+	private Text parkeerPrijsText;
+	
+	@FXML 
+	private TextField parkeerPrijsField;
+	
+	@FXML
 	private Button resetSubmit;
 
 	@FXML
@@ -145,6 +152,7 @@ public class Controller implements Initializable {
 	private Reserveren reseveren;
 	private SimulatorModel model;
 	private SimulatorView simulatorView;
+	private Car car;
 	private Queu queu;
 	private boolean pressed;
 	private String active = "-fx-background-color: #A055DD";
@@ -159,7 +167,7 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
+		
 		model = new SimulatorModel();
 		Autos = new AantalAutosView(model);
 		paneAutos.getChildren().add(Autos);
@@ -282,6 +290,7 @@ public class Controller implements Initializable {
 			enterSpeedField.setText(String.valueOf(model.getEnterSpeed()));
 			paymentSpeedField.setText(String.valueOf(model.getPaymentSpeed()));
 			exitSpeedField.setText(String.valueOf(model.getExitSpeed()));
+			//# parkeerPrijsField.setText(String.valueOf(car.getPayPrice()));
 		});
 
 		// Wijzigd de waardes naar de ingevoere waardes
@@ -296,6 +305,7 @@ public class Controller implements Initializable {
 			int enter = Integer.parseInt(enterSpeedField.getText());
 			int payment = Integer.parseInt(paymentSpeedField.getText());
 			int exit = Integer.parseInt(exitSpeedField.getText());
+			// # Double parkPrice = Double.parseDouble(parkeerPrijsField.getText());
 
 			// Waardes in model wijzigen
 			model.setWeekDayArrivals(a1);
@@ -306,6 +316,7 @@ public class Controller implements Initializable {
 			model.setWeekendReserverenArrivals(m2);
 			model.setEnterSpeed(enter);
 			model.setPaymentSpeed(payment);
+			// # car.setPayPrice(parkPrice);
 			model.setExitSpeed(exit);
 		});
 
@@ -420,6 +431,16 @@ public class Controller implements Initializable {
 				}
 			}
 		});
+		
+		// parkeer Prijs
+		parkeerPrijsField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					parkeerPrijsField.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
 
 		// clock timer
 		AnimationTimer d = new AnimationTimer() {
@@ -443,6 +464,8 @@ public class Controller implements Initializable {
 				}
 			}
 		};
+		
+		
 		d.start();
 		// Einde klok timer
 
