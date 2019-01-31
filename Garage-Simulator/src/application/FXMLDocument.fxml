@@ -20,7 +20,7 @@
       
       <VBox layoutY="-4.0" prefHeight="779.0" prefWidth="232.0" style="-fx-background-color: #3F2B63;">
          <children>
-            <Pane blendMode="SCREEN" prefHeight="228.0" prefWidth="291.0">
+            <Pane prefHeight="228.0" prefWidth="291.0">
                <children>
                   <Text fill="#777777" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garage Simulator">
                      <font>
@@ -62,7 +62,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <ImageView fx:id="buttonPlay" fitHeight="31.0" fitWidth="28.0" layoutX="22.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="buttonPlay" blendMode="HARD_LIGHT" fitHeight="31.0" fitWidth="28.0" layoutX="22.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/play.png" />
                      </image>
