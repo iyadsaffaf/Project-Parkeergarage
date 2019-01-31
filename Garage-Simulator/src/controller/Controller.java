@@ -440,7 +440,7 @@ public class Controller implements Initializable {
 					parkeerPrijsField.setText(newValue.replaceAll("[^\\d]", ""));
 				}
 			}
-		}); 
+		});
 
 		// clock timer
 		AnimationTimer d = new AnimationTimer() {
