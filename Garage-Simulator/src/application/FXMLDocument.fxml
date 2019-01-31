@@ -155,7 +155,7 @@
             <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneQueu" prefHeight="354.0" prefWidth="874.0" visible="false" />
             <Pane fx:id="paneWinst" prefHeight="648.0" prefWidth="934.0" visible="false" />
-            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false" />
+            <Pane fx:id="paneReserveren" prefHeight="648.0" prefWidth="934.0" visible="false"  />
          </children>
       </StackPane>
      
