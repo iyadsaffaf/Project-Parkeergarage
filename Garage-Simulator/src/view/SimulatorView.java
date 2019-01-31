@@ -181,7 +181,7 @@ public class SimulatorView extends Canvas {
 		while (queue.carsInQueue() > 0 && model.getNumberOfOpenSpots() > 0 && i < model.getEnterSpeed()) {
 
 			Car car = queue.removeCar();
-
+            
 			Location freeLocation = getFirstFreeLocation();
 			model.setCarAt(freeLocation, car);
 			i++;
@@ -243,8 +243,14 @@ public class SimulatorView extends Canvas {
 		switch (type) {
 		case AD_HOC:
 			for (int i = 0; i < numberOfCars; i++) {
-				model.getEntranceCarQueue().addCar(new AdHocCar());
-//				
+				Car car = new AdHocCar();
+
+				model.getEntranceCarQueue().addCar(car);
+				Random rn = new Random();
+				double d = rn.nextDouble(); // random value in range 0.0 - 1.0
+				if (d <= 0.04) {
+					car.setBadAtParking(true);
+				}
 
 				model.setNumberOfAdHocCar(model.getNumberOfAdHocCar() + 1);
 				model.setNumberOfAdHocCarNow(model.getNumberOfAdHocCarNow() + 1);
@@ -252,7 +258,14 @@ public class SimulatorView extends Canvas {
 			break;
 		case PASS:
 			for (int i = 0; i < numberOfCars; i++) {
-				model.getEntrancePassQueue().addCar(new ParkingPassCar());
+
+				Car car = new ParkingPassCar();
+				model.getEntrancePassQueue().addCar(car);
+				Random rn = new Random();
+				double d = rn.nextDouble(); // random value in range 0.0 - 1.0
+				if (d <= 0.04) {
+					car.setBadAtParking(true);
+				}
 				model.setNumberOfParkingPassCar(model.getNumberOfParkingPassCar() + 1);
 				model.setNumberOfParkingPassCarNow(model.getNumberOfParkingPassCarNow() + 1);
 
@@ -260,8 +273,15 @@ public class SimulatorView extends Canvas {
 			break;
 
 		case RES:
+
 			for (int i = 0; i < numberOfCars; i++) {
-				model.getEntrancePassQueue().addCar(new ReserverenCar());
+				Car car =  new ReserverenCar();
+				model.getEntrancePassQueue().addCar(car);
+				Random rn = new Random();
+				double d = rn.nextDouble(); // random value in range 0.0 - 1.0
+				if (d <= 0.04) {
+					car.setBadAtParking(true);
+				}
 				model.setNumberOfReserverenCar(model.getNumberOfReserverenCar() + 1);
 				model.setNumberOfReserverenCarNow(model.getNumberOfReserverenCarNow() + 1);
 			}
@@ -283,5 +303,5 @@ public class SimulatorView extends Canvas {
 		model.getExitCarQueue().addCar(car);
 
 	}
-
+	
 }
