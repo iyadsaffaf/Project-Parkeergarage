@@ -8,7 +8,7 @@ import javafx.scene.chart.XYChart;
 import model.SimulatorModel;
 
 /*
- * Class Reseveren - Laat een AreaChart zien met daarin de data van alle resverende auto's voor de parkeergarage
+ *Class Reserveren - Laat een Area Chart zien met daarin de data van alle geparkeerde auto's in de parkeergarage
  * @author Batul Khatib
  * @version  5.3
  * * */
