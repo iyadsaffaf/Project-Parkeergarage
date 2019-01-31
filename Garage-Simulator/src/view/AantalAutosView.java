@@ -20,6 +20,9 @@ public class AantalAutosView extends PieChart {
 	private ObservableList<PieChart.Data> pieChartData;
 	private SimulatorModel model;
 
+	/**
+	 * Constructor voor objecten van klasse AantalAutosView.
+	 */
 	public AantalAutosView(SimulatorModel model) {
 		super();
 		this.model = model;
@@ -28,6 +31,10 @@ public class AantalAutosView extends PieChart {
 			private long lastUpdate = 0;
 
 			@Override
+
+			/*
+			 * Deze methode wordt gebruikt om de PieChart up te daten met actuele data
+			 */
 			public void handle(long now) {
 				if (now - lastUpdate >= 1000_000) {
 					lastUpdate = now;
