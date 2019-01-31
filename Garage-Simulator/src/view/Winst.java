@@ -41,7 +41,7 @@ public class Winst extends LineChart<Number, Number> {
 
 			@Override
 			public void handle(long now) {
-				if (now - lastUpdate >= 1000_000_000) {
+				if (now - lastUpdate >= 1000_000_000) { 
 					lastUpdate = now;
 					update();
 				}
