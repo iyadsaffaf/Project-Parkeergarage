@@ -32,7 +32,7 @@ public class SimulatorView extends Canvas {
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
 	private static final String RES = "3";
-
+    private boolean oneTime =true;
 	/**
 	 * 
 	 */
@@ -47,13 +47,17 @@ public class SimulatorView extends Canvas {
 
 			@Override
 			public void handle(long now) {
-//				if (now - lastUpdate >= model.getSpeedOfSumlator()) {
-//				if (now - lastUpdate >= 5) {
+				if (now - lastUpdate >= model.getSpeedOfSumlator()) {
 					lastUpdate = now;
 					if (model.isIsrunning()) {
 						tickBig();
 
-//					}
+			}
+				if(oneTime)	{
+					updateView();
+					oneTime=false;
+				}
+					
 
 				}
 			}
