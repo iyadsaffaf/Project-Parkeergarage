@@ -23,19 +23,20 @@ public class Reserveren extends AreaChart<Number, Number> {
 
 	private int day = 0;
 	private int lastTotal = 0;
+
 	/**
-     * Constructor for objects of class Reseveren view
-     */
-    /**
-     * Constructor voor objecten van klasse Reseveren view.
-     */
+	 * Constructor for objects of class Reseveren view
+	 */
+	/**
+	 * Constructor voor objecten van klasse Reseveren view.
+	 */
 	public Reserveren(SimulatorModel model) {
 		super(xAxis, yAxis);
 		this.model = model;
 
 		seriesDag = new XYChart.Series();
-   // Het algemene gegevens van de grafiek.
-		
+		// Het algemene gegevens van de grafiek.
+
 		setTitle("Aantal gereserveerde plaatsen per dag");
 		yAxis.setLabel("Plaats(en)");
 		xAxis.setLabel("Dag");
@@ -45,8 +46,9 @@ public class Reserveren extends AreaChart<Number, Number> {
 		setLegendVisible(false);
 		setMaxHeight(380);
 
-		 // AnimationTimer maakt een nieuwe timer aan zodat we actuele data kunnen weergeven
-		
+		// AnimationTimer maakt een nieuwe timer aan zodat we actuele data kunnen
+		// weergeven
+
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
 
@@ -71,9 +73,8 @@ public class Reserveren extends AreaChart<Number, Number> {
 	private synchronized void update() {
 		if (model.getDay() > day) {
 			try {
-				// Het toevoegen van data aan de AreaChart        
-				seriesDag.getData()
-						.add(new XYChart.Data(model.getDay(), model.getNumberOfReserverenCar() - lastTotal));
+				// Het toevoegen van data aan de AreaChart
+				seriesDag.getData().add(new XYChart.Data(model.getDay(), model.getNumberOfReserverenCar() - lastTotal));
 
 				day++;
 				lastTotal = model.getNumberOfReserverenCar();
