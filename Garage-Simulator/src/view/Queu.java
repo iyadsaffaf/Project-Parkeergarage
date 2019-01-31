@@ -16,16 +16,15 @@ public class Queu extends BarChart<String,Number > {
 	/*
 	 * Class Queu - Laat een BarChart zien met daarin de data van alle wachtende auto's voor de parkeergarage
 	 * 
-	 * @author  		Irena Nowak 
+	 * @author  	Irena Nowak 
 	 * @version		29 januari 2019
-
 	 */
 	
 	private CarQueue queue;
 	private Car car;
 	private SimulatorModel model;
     final static CategoryAxis xAxis = new CategoryAxis();
-    final static NumberAxis yAxis = new NumberAxis();
+    final static NumberAxis yAxis = new NumberAxis(0, 14, 2);
     /*
      * Constructor Queu voor het aanmaken van een nieuwe BarChart
      * 
@@ -38,9 +37,7 @@ public class Queu extends BarChart<String,Number > {
 
 		// Maakt de algemene gegevens van BarChart aan		
         xAxis.setLabel("Wachtrij");  
-//        xAxis.setTickLabelRotation(90);
         yAxis.setLabel("Garage");   
-//        xAxis.setForceZeroInRange(false);
         
         updateGrafiek();
     
