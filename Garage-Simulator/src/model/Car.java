@@ -107,15 +107,12 @@ public abstract class Car {
      */
     public abstract Color getColor();
     public abstract String getType();
-
-    
-    
-    
+    /**
+     * 
+     * @return de Winst per auto
+     */
     public double profitCar() {
-
-		
-			profitCar = this.getStayMinutes() * payPrice;
-		
+		profitCar = this.getStayMinutes() * payPrice;
 		return profitCar;
     }
 }
