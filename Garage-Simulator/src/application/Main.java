@@ -10,10 +10,13 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+	/*
+	 * Main file starts application
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-//			BorderPane root = new BorderPane();
 			Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
 		    primaryStage.initStyle(StageStyle.UNDECORATED);
 			Scene scene = new Scene(root,1159,775);
@@ -24,7 +27,9 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+	/*
+	 *  launch application 
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
