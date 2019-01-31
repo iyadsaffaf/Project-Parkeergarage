@@ -1,6 +1,7 @@
 package view;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Side;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -27,6 +28,8 @@ public class Winst extends LineChart<Number, Number> {
 		series.getData().add(new XYChart.Data(0, 0));
 
 		getData().add(series);
+		setLegendSide(Side.LEFT);
+		setMaxHeight(350);
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -57,7 +60,7 @@ public class Winst extends LineChart<Number, Number> {
 				
 			}
 		}
-		if (day == 7) {
+		if (model.getDay()>6 ) {
 			day = 0;
 
 		}

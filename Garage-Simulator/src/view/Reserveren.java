@@ -1,6 +1,7 @@
 package view;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Side;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -30,7 +31,8 @@ public class Reserveren extends AreaChart<Number, Number> {
 
 
 		seriesApril.setName("April");
-
+		setLegendSide(Side.LEFT);
+		setMaxHeight(350);
 
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
@@ -68,7 +70,7 @@ public class Reserveren extends AreaChart<Number, Number> {
 				
 			}
 		}
-		if (day == 7) {
+		if (model.getDay()>6 ) {
 			day = 0;
 
 		}
