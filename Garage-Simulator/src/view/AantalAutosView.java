@@ -23,7 +23,7 @@ public class AantalAutosView extends PieChart {
 	public AantalAutosView(SimulatorModel model) {
 		super();
 		this.model = model;
-
+//            setEffect();
 		AnimationTimer d = new AnimationTimer() {
 			private long lastUpdate = 0;
 

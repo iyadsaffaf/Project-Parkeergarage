@@ -11,7 +11,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import model.*;
 
-public class Queu extends BarChart<Number, String> {
+public class Queu extends BarChart<String,Number > {
 	
 	/*
 	 * Class Queu - Laat een BarChart zien met daarin de data van alle wachtende auto's voor de parkeergarage
@@ -24,9 +24,8 @@ public class Queu extends BarChart<Number, String> {
 	private CarQueue queue;
 	private Car car;
 	private SimulatorModel model;
-	final static NumberAxis xAxis = new NumberAxis(0, 10, 1);
-    final static CategoryAxis yAxis = new CategoryAxis();
-    
+    final static CategoryAxis xAxis = new CategoryAxis();
+    final static NumberAxis yAxis = new NumberAxis();
     /*
      * Constructor Queu voor het aanmaken van een nieuwe BarChart
      * 
@@ -39,9 +38,9 @@ public class Queu extends BarChart<Number, String> {
 
 		// Maakt de algemene gegevens van BarChart aan		
         xAxis.setLabel("Wachtrij");  
-        xAxis.setTickLabelRotation(90);
+//        xAxis.setTickLabelRotation(90);
         yAxis.setLabel("Garage");   
-        xAxis.setForceZeroInRange(false);
+//        xAxis.setForceZeroInRange(false);
         
         updateGrafiek();
     
@@ -81,10 +80,10 @@ queueTimer.start();
 		        // Het toevoegen van data aan de BarChart              
 		        XYChart.Series series = new XYChart.Series();
 		        series.setName("Car Queues");       
-		        series.getData().add(new XYChart.Data(carQueue.carsInQueue(), "Entrance Car Queue"));
-		        series.getData().add(new XYChart.Data(passQueue.carsInQueue(), "Entrance Pass Queue"));
-		        series.getData().add(new XYChart.Data(exitQueue.carsInQueue(), "Exit Car Queue"));
-		        series.getData().add(new XYChart.Data(paymentQueue.carsInQueue(), "Payment Car Queue"));
+		        series.getData().add(new XYChart.Data("Entrance Car Queue",carQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data( "Entrance Pass Queue",passQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data("Exit Car Queue",exitQueue.carsInQueue()));
+		        series.getData().add(new XYChart.Data("Payment Car Queue" ,paymentQueue.carsInQueue()));
 		       
 		        getData().add(series);
 		        setLegendSide(Side.LEFT);
