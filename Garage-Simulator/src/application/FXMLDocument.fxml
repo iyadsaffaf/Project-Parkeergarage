@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1159.0" styleClass="root" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1159.0" styleClass="root" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
     <children>
       
       <VBox layoutY="-4.0" prefHeight="779.0" prefWidth="232.0" style="-fx-background-color: #3F2B63;">
@@ -148,7 +148,9 @@
                   </TextField> 
                   <Text fx:id="weekdayArrivalText" layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" text="Weekday Arrival" />
                   
-                        <Button fx:id="resetSubmit" layoutX="632.0" layoutY="183.0" mnemonicParsing="false" text="Submit" textFill="WHITE" />
+                        <Button fx:id="resetSubmit" layoutX="640.0" layoutY="282.0" mnemonicParsing="false" text="Submit" textFill="WHITE" />
+                  <Text fx:id="parkeerPrijsText" layoutX="449.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parkeer prijs" />
+                  <TextField fx:id="parkeerPrijsField" layoutX="535.0" layoutY="182.0" />
                </children></Pane>
             <Pane fx:id="paneAutos" prefHeight="648.0" prefWidth="934.0" visible="false" />
             <Pane fx:id="paneQueu" prefHeight="354.0" prefWidth="874.0" visible="false" />
